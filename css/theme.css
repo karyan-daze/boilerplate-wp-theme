@@ -7173,3 +7173,22 @@ a.skip-link {
       border-radius: 30px; }
     .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
       background: #869791; }
+
+#wrapper-static-hero {
+  padding-top: 0px; }
+
+#wrapper-navbar {
+  z-index: 2;
+  background: transparent;
+  left: 0;
+  right: 0;
+  position: absolute; }
+
+.wrapper {
+  z-index: 1; }
+
+.navbar {
+  padding: 2rem 1rem; }
+
+.hero-image {
+  min-width: 100%; }

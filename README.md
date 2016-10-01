@@ -1,21 +1,26 @@
-Start talking: [![Gitter](https://img.shields.io/gitter/room/holger1411/understrap.svg?maxAge=2592000?style=flat-square)](https://gitter.im/holger1411/understrap)
-
 ## About
 
-I’m a huge fan of Underscores, Bootstrap, and Sass. Why not combine these into a solid WordPress Theme Framework?
-That’s what UnderStrap is. 
-You can use it as starter theme and build your own theme on top of it. Or you use it as parent theme and create your own child theme for UnderStrap.
+Easy to use theme
+ ## translation ready
+ ## gulp for building assets for sass
+ ## bootstrap 4 included
 
-At the moment, UnderStrap is in a very early stage. But if you wan’t, feel free to use it for your own WordPress theme!
+## TODO
 
-# UnderStrap WordPress Theme Framework
+ ## setup the needed content boxes with metabox ( so install metabox.io ) - DONE
+ ## force install of metabox.io in the future - DONE
+ ## force install of translation plugin - NOT DONE
 
-Website: [http://understrap.com](http://understrap.com)
-
-Child Theme Project: [https://github.com/holger1411/understrap-child](https://github.com/holger1411/understrap-child)
+ # AHMED TODO
+ ## Import the xml file from the bitbucket repo included here.
+ ## WORK in the _theme.scss file in the sass/theme folder
+ ## Style the BENEFITS
+ ## (for later)Style the Partners - we might have to include a carousel plugin (owlcarousel)
+ ## Style "wir wollen nicht angeben". in the section-info.php file you can add text *because it's hardcoded. And HTML.
+ ## Style the Testimonials
+ ## Style the Section Contact.
 
 ## License
-UnderStrap is released under the terms of the GPL version 2 or (at your option) any later version.
 
 http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
@@ -156,18 +161,9 @@ Some basics about the Sass and CSS files that come with UnderStrap:
 - Don’t edit the files no. 2-4 files/filesets or you won’t be able to update it without overwriting your own work!
 - Your design goes into: `/sass/theme`. Add your styles to the `/sass/theme/_theme.scss` file and your variables to the `/sass/theme/_theme_variables.scss`. Or add other .scss files into it and `@import` it into `/sass/theme/_theme.scss`.
 
-## Installation
-
-- Download the understrap folder from GitHub or from understrap.com
-- IMPORTANT: If you download it from GitHub make sure you rename the "understrap-master.zip" file just to "understrap.zip" or you might have problems using child themes !!
-- Upload it into your WordPress installation subfolder here: `/wp-content/themes/`
-- Login to your WordPress backend
-- Go to Appearance → Themes
-- Activate the UnderStrap theme
-
 ## Developing With npm, Gulp and SASS and [Browser Sync][1]
 
-### Installing Dependencies
+### Install Development
 - Make sure you have installed Node.js and Browser-Sync* (* optional, if you wanna use it) on your computer globally
 - Then open your terminal and browse to the location of your UnderStrap copy
 - Run: `$ npm install` and then: `$ gulp copy-assets`
@@ -177,6 +173,7 @@ To work and compile your Sass files on the fly start:
 
 - `$ gulp watch`
 
+- this one is not necessary (not that much)
 Or, to run with Browser-Sync:
 
 - First change the browser-sync options to reflect your environment in the file `/gulpfile.js` in the beginning of the file:

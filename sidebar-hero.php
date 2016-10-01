@@ -6,7 +6,9 @@
 
         <div class="owl-carousel">
 
-            <?php dynamic_sidebar( 'hero' ); ?>
+
+            
+<!--            --><?php //dynamic_sidebar( 'hero' ); ?>
 
         </div><!-- .owl-carousel -->
 

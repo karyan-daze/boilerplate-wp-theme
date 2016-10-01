@@ -21,10 +21,7 @@
                 <footer id="colophon" class="site-footer" role="contentinfo">
 
                     <div class="site-info">
-                        <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'understrap' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'understrap' ), 'WordPress' ); ?></a>
-                        <span class="sep"> | </span>
-                        <?php printf( __( 'Theme: %1$s by %2$s.', 'understrap' ), 'understrap', '<a href="http://understrap.com/" rel="designer">understrap.com</a>' ); ?> 
-                        (<?php printf( __( 'Version', 'understrap' ) ); ?>: 0.4.7)
+                        <?php printf( __( 'Development by: %1$s %2$s.', 'airteam' ), 'Karyan Daze', '<a href="http://karyandaze.com/" rel="designer">Made with Love in Berlin</a>' ); ?>
                     </div><!-- .site-info -->
 
                 </footer><!-- #colophon -->
