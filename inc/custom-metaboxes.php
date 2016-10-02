@@ -95,6 +95,130 @@ function airteam_register_meta_boxes( $meta_boxes ) {
         )
     );
 
+    // Get the post to Set a Metabox ONLY for the Team page template.
+    if ( is_admin() ) {
+        if (isset($_GET['post'])) $post_id = $_GET['post'];
+        elseif (isset($_POST['post_ID'])) $post_id = $_POST['post_ID'];
+
+        // This causes bug for removing pictures on the page.
+        if (isset($post_id)) :
+        $template_file = get_post_meta($post_id, '_wp_page_template', TRUE);
+// check for a template type
+        if ($template_file == 'page-templates/team.php') {
+            // The current page has the team template assigned
+            // do something
+            $meta_boxes[] = array(
+                'id' => 'team_info',
+                'title' => __('Main Team Info', 'airteam'),
+                'post_types' => array('page'),
+                'context' => 'normal',
+                'priority' => 'high',
+                'fields' => array(
+                    array(
+                        'name' => __('Main Team Title', 'airteam'),
+                        'desc' => 'Format: Title',
+                        'id' => $prefix3 . 'team_title',
+                        'type' => 'text',
+                        'std' => 'Sed posuere consectetur est at lobortis.',
+                        'class' => 'custom-class',
+                        'clone' => false,
+                    ),
+                    array(
+                        'name' => __('Team Description', 'airteam'),
+                        'desc' => 'Description next to the image',
+                        'id' => $prefix3 . 'team_description',
+                        'type' => 'text',
+                        'class' => 'custom-class',
+                    ),
+                    array(
+                        'name' => __('Main Image', 'airteam'),
+                        'desc' => 'Team Image Main on the left',
+                        'id' => $prefix3 . 'team_image',
+                        'type' => 'image',
+                        'class' => 'custom-class',
+                    ),
+                    array(
+                        'name' => __('Full name', 'airteam'),
+                        'desc' => 'Full Name of the Main Team member',
+                        'id' => $prefix3 . 'team_name',
+                        'type' => 'text',
+                        'std' => 'Thomas Gorski',
+                        'class' => 'custom-class',
+                        'clone' => false,
+                    ),
+                    array(
+                        'name' => __('Job Title', 'airteam'),
+                        'desc' => 'Job Title of the Main Team member',
+                        'id' => $prefix3 . 'team_job_title',
+                        'type' => 'text',
+                        'std' => 'CEO',
+                        'class' => 'custom-class',
+                        'clone' => false,
+                    ),
+
+
+                )
+            );
+
+        } endif; } else {
+
+        // not in admin? Just always run the metaboxes.
+    $meta_boxes[] = array(
+        'id' => 'team_info',
+        'title' => __('Main Team Info', 'airteam'),
+        'post_types' => array('page'),
+        'context' => 'normal',
+        'priority' => 'high',
+        'fields' => array(
+            array(
+                'name' => __('Main Team Title', 'airteam'),
+                'desc' => 'Format: Title',
+                'id' => $prefix3 . 'team_title',
+                'type' => 'text',
+                'std' => 'Sed posuere consectetur est at lobortis.',
+                'class' => 'custom-class',
+                'clone' => false,
+            ),
+            array(
+                'name' => __('Team Description', 'airteam'),
+                'desc' => 'Description next to the image',
+                'id' => $prefix3 . 'team_description',
+                'type' => 'text',
+                'class' => 'custom-class',
+            ),
+            array(
+                'name' => __('Main Image', 'airteam'),
+                'desc' => 'Team Image Main on the left',
+                'id' => $prefix3 . 'team_image',
+                'type' => 'image',
+                'class' => 'custom-class',
+            ),
+            array(
+                'name' => __('Full name', 'airteam'),
+                'desc' => 'Full Name of the Main Team member',
+                'id' => $prefix3 . 'team_name',
+                'type' => 'text',
+                'std' => 'Thomas Gorski',
+                'class' => 'custom-class',
+                'clone' => false,
+            ),
+            array(
+                'name' => __('Job Title', 'airteam'),
+                'desc' => 'Job Title of the Main Team member',
+                'id' => $prefix3 . 'team_job_title',
+                'type' => 'text',
+                'std' => 'CEO',
+                'class' => 'custom-class',
+                'clone' => false,
+            ),
+
+
+        )
+    );
+
+        }
+
+
     // 2nd meta box
     return $meta_boxes;
 }

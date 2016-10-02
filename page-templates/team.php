@@ -5,6 +5,17 @@
  * Template for displaying the Team
  *
  * @package airteam.camera
+ *
+ * Parameters available on the team page for showing the right content
+ *
+ * @params: page_title
+ * @params: page_hero_image
+ * @params: page_team_job_title
+ * @params: page_team_name
+ * @params: page_team_description
+ * @params: page_team_title
+ * @params: page_team_image
+ *
  */
 
 ?>
@@ -13,6 +24,12 @@
         get_header();
         $title = get_post_meta(get_the_ID(), 'page_title', true);
         $images = rwmb_meta( 'page_hero_image' );
+
+        $main_job_title = get_post_meta(get_the_ID(), 'page_team_job_title', true);
+        $main_full_name = get_post_meta(get_the_ID(), 'page_team_name', true);
+        $main_description = get_post_meta(get_the_ID(), 'page_team_description', true);
+        $main_title = get_post_meta(get_the_ID(), 'page_team_title', true);
+        $main_images = rwmb_meta( 'page_team_image' );
 
 ?>
 

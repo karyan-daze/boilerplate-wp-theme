@@ -94,5 +94,7 @@ require get_template_directory() . '/inc/custom-metaboxes.php';
 
 require get_template_directory() . '/inc/queries.php';
 
+require get_template_directory() . '/inc/contact_request.php';
+
 require get_template_directory() . '/inc/helpers.php';
 
