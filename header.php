@@ -18,6 +18,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <?php wp_head(); ?>
+    <?php require get_template_directory() . '/inc/modal.php'; ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -66,6 +68,9 @@
                                         'walker' => new wp_bootstrap_navwalker()
                                     )
                             ); ?>
+
+                    <p><a href="#bitte!" data-toggle="modal" data-target="#myModal"><?= _e('Um Rückruf bitten', 'nh'); ?></a></p>
+
 
                 </div> <!-- .container -->
             

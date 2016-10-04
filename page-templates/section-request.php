@@ -19,6 +19,25 @@ record_email:email@email.com
  *
  */
 ?>
+
+<?php
+
+if(isset($_POST["record_type"])) :
+foreach($_POST["record_type"] as $record) :
+    if($record == "Foto- Videoaufnahmen") :
+        $record_1 = "Foto- Videoaufnahmen";
+    elseif($record == "360 Panorama") :
+        $record_2 = "360 Panorama";
+    elseif($record == "3D Modell") :
+        $record_3 = "3D Modell";
+    endif;
+
+endforeach;
+
+endif;
+?>
+
+
 <div class="row">
     <div class="container">
 
@@ -42,33 +61,33 @@ record_email:email@email.com
                         <h3> Step 1</h3>
                         <div class="form-group">
                             <label class="control-label"><?php _e('Art der Aufnahmen','airteam') ?></label>
-                            <?php _e('Foto- Videoaufnahmen', '') ?><input name="record_type" type="checkbox" value="<?php _e('Foto- Videoaufnahmen', '') ?>">
-                            <?php _e('360 Panorama', '') ?><input name="record_type" type="checkbox" value="<?php _e('360 Panorama', '') ?>">
-                            <?php _e('3D Modell', '') ?><input name="record_type" type="checkbox" value="<?php _e('3D Modell', '') ?>">
+                            <?php _e('Foto- Videoaufnahmen', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('Foto- Videoaufnahmen', '') ?>" <?php if(isset($record_1)): echo 'checked'; endif;?>>
+                            <?php _e('360 Panorama', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('360 Panorama', '') ?>" <?php if(isset($record_2)): echo 'checked'; endif;?>>
+                            <?php _e('3D Modell', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('3D Modell', '') ?>" <?php if(isset($record_3)): echo 'checked'; endif;?>>
 
                         </div>
                         <div class="form-group">
                             <label class="control-label"><?php _e('Ort der Aufnahmen ','airteam') ?></label>
-                            <input pattern="[a-zA-Z0-9 ]+" maxlength="100" type="text" required="required" class="form-control" placeholder="Stadt" />
+                            <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text" required="required" class="form-control" placeholder="Stadt" value="<?php if(isset($_POST["record_place"])) : echo $_POST["record_place"]; endif; ?>"/>
                         </div>
                         <div class="form-group">
                             <label class="control-label"><?php _e('Ausführungszeitraum','airteam') ?></label>
-                            <input maxlength="100" name="record_date_range" type="text" required="required" class="form-control" placeholder="Stadt" />
-                            <?php _e('Genauer Tag', 'airteam') ?><input name="record_day" type="checkbox" value="<?php _e('3D Modell', '') ?>"><input name="record_day_date" type="text">
+                            <input maxlength="100" name="record_date_range" type="text" class="form-control" placeholder="" />
+                            <?php _e('Genauer Tag', 'airteam') ?><input name="record_day" type="checkbox" value="<?php _e('3D Modell', 'airteam') ?>"><input name="record_day_date" type="text">
 
 
                         </div>
 
                         <div class="form-group">
                             <label class="control-label"><?php _e('Zusätzliche Anforderungen','airteam') ?></label>
-                            <?php _e('Filmschnitt/Imagefilm', 'airteam') ?><input name="record_additional_services" type="checkbox" value="<?php _e('Filmschnitt/Imagefilm', '') ?>">
-                            <?php _e('Bildbearbeitung', 'airteam') ?><input name="record_additional_services" type="checkbox" value="<?php _e('Bildbearbeitung', '') ?>">
+                            <?php _e('Filmschnitt/Imagefilm', 'airteam') ?><input name="record_additional_services[]" type="checkbox" value="<?php _e('Filmschnitt/Imagefilm', 'airteam') ?>">
+                            <?php _e('Bildbearbeitung', 'airteam') ?><input name="record_additional_services[]" type="checkbox" value="<?php _e('Bildbearbeitung', 'airteam') ?>">
                         </div>
 
                         <div class="form-group">
 
                             <label for="record_description"><?php _e('Beschreibung', 'airteam'); ?></label>
-                            <textarea rows="10" cols="35" maxlength="100" required="required" class="form-control" placeholder=""></textarea>
+                            <textarea rows="10" name="record_description" cols="35" maxlength="100" required="required" class="form-control" placeholder=""></textarea>
 
                         </div>
 
@@ -117,7 +136,17 @@ record_email:email@email.com
         /* Check the Customer Name for blank submission*/
         var customer_name = document.forms["record_information"]["record_fname"].value;
         if (customer_name == "" || customer_name == null) {
-            alert("Name field must be filled.");
+            alert("Bitte das Name feld einfüllen");
+            return false;
+        }
+        var customer_name = document.forms["record_information"]["record_lname"].value;
+        if (customer_name == "" || customer_name == null) {
+            alert("Bitte die Name Feld einfüllen");
+            return false;
+        }
+        var customer_email = document.forms["record_information"]["record_email"].value;
+        if (customer_email == "" || customer_email == null) {
+            alert("Bitte das Email Feld einfüllen.");
             return false;
         }
 

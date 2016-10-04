@@ -130,7 +130,7 @@
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
                         <a href="http://airteam.camera" target="_blank">
-                            <img alt="Logo" src="../assets/static/preview.jpg" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                            <img alt="Logo" src="{{logo_path}}" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
@@ -143,7 +143,7 @@
         </td>
     </tr>
     <tr>
-        <td bgcolor="#D8F1FF" align="center" style="padding: 70px 15px 70px 15px;" class="section-padding">
+        <td bgcolor="#D8F1FF" align="center" style="padding: 10px 15px 10px 15px;" class="section-padding">
             <!--[if (gte mso 9)|(IE)]>
             <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
             <tr>
@@ -161,7 +161,7 @@
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 15px;" class="padding-copy">    Neue Anfrage von die airteam.camera Webseite
+                                            <td align="center" style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">Neue Anfrage von die airteam.camera Webseite
                                             </td>
                                         </tr>
                                     </table>
@@ -209,143 +209,19 @@
                                                         </tr>
                                                         <tr>
                                                              <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                                                    <ul>
-                                                                        <li>Art der Aufnahmen: {{ record_type  }}</li>
-                                                                        <li>Ort der Aufnahmen: {{ record_place  }}</li>
-                                                                        <li>Ausführungszeitraum: {{ record_date_range  }}</li>
-                                                                        <li>Genauer Tag: {{ record_day_date  }}</li>
-                                                                        <li>Zusätzliche Anforderungen: {{ record_additional_services  }}</li>
-                                                                        <li>Beschreibung: {{ record_description  }}</li>
-                                                                        <li>Name: {{ record_fname  }}, {{ record_lname  }}</li>
-                                                                        <li>Firma: {{ record_company  }}</li>
-                                                                        <li>Telefonnummer: {{ record_tel  }}</li>
-                                                                        <li>E-mail-adresse: {{ record_email  }}</li>
-                                                                    </ul>
-
-
-
-
+                                                                  <table>
+                                                                      <tr><td>Art der Aufnahmen:</td><td>{{record_types}}</td>
+                                                                          <tr><td>Ort der Aufnahmen:</td><td> {{record_place}}</td></tr>
+                                                                      <tr><td>Ausführungszeitraum: </td><td>{{record_date_range}}</td></tr>
+                                                                      <tr><td>Genauer Tag: </td><td>{{record_day_date}}</td></tr>
+                                                                      <tr><td>Zusätzliche Anforderungen: </td><td>{{record_additional_services}}</td></tr>
+                                                                      <tr><td>Beschreibung: </td><td>{{record_description}}</td></tr>
+                                                                      <tr><td>Name: </td><td>{{record_fname}}, {{record_lname}}</td></tr>
+                                                                      <tr><td>Firma: </td><td>{{record_company}}</td></tr>
+                                                                      <tr><td>Telefonnummer: </td><td>{{record_tel}}</td></tr>
+                                                                      <tr><td>E-mail-adresse: </td><td>{{record_email}}</td></tr>
+                                                                  </table>
                                                              </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 35px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-                            <tr>
-                                <td align="center" valign="top" style="font-size:0;" dir="rtl">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;" dir="ltr">
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" dir="ltr">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px;">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy"><?php site_url(); ?></td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    </tr>
-                                    </table>
-                                    <![endif]-->
-                                </td>
-                            </tr>
-                        </table>
-                        <!--[if (gte mso 9)|(IE)]>
-                        </td>
-                        </tr>
-                        </table>
-                        <![endif]-->
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" height="100%" valign="top" width="100%" style="padding-bottom: 25px;">
-                        <!--[if (gte mso 9)|(IE)]>
-                        <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                        <tr>
-                        <td align="center" valign="top" width="500">
-                        <![endif]-->
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:500;">
-                            <tr>
-                                <td align="center" valign="top" style="font-size:0;">
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="500">
-                                    <tr>
-                                    <td align="left" valign="top" width="150">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:150px; vertical-align:top; width:100%;">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="150">
-                                            <tr>
-                                                <td valign="top"><a href="http://litmus.com" target="_blank"><img src="product-4.png" alt="alt text here" width="150" height="200" border="0" style="display: block; font-family: Arial; color: #666666; font-size: 14px;"></a></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <!--[if (gte mso 9)|(IE)]>
-                                    </td>
-                                    <td align="left" valign="top" width="350">
-                                    <![endif]-->
-                                    <div style="display:inline-block; margin: 0 -2px; max-width:350px; vertical-align:top; width:100%;" class="wrapper">
-
-                                        <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 325px; float: right;" class="wrapper">
-                                            <tr>
-
-                                                <td style="padding: 40px 0 0 0;" class="no-padding">
-                                                    <!-- ARTICLE -->
-                                                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                                        <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Feature Highlight</td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Maecenas sed nulla massa. In mattis vulputate nisl, rhoncus blandit lorem maximus non. Phasellus tempus in ipsum non lacinia.</td>
                                                         </tr>
                                                     </table>
                                                 </td>
@@ -381,10 +257,10 @@
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Our Best Product Ever</td>
+                                            <td align="center" style="font-size: 25px; font-family: Helvetica, Arial, sans-serif; color: #333333; padding-top: 30px;" class="padding-copy">Email Sent via Airteam.camera</td>
                                         </tr>
                                         <tr>
-                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, leo a ullamcorper feugiat, ante purus sodales justo, a faucibus libero lacus a est. Aenean at mollis ipsum.</td>
+                                            <td align="center" style="padding: 20px 0 0 0; font-size: 16px; line-height: 25px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy"></td>
                                         </tr>
                                     </table>
                                 </td>
@@ -397,7 +273,7 @@
                                             <td align="center" style="padding-top: 25px;" class="padding">
                                                 <table border="0" cellspacing="0" cellpadding="0" class="mobile-button-container">
                                                     <tr>
-                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="https://litmus.com" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Learn More &rarr;</a></td>
+                                                        <td align="center" style="border-radius: 3px;" bgcolor="#256F9C"><a href="http://airteam.camera" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 15px 25px; border: 1px solid #256F9C; display: inline-block;" class="mobile-button">Learn More &rarr;</a></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -422,11 +298,11 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="max-width: 500px;" class="responsive-table">
                 <tr>
                     <td align="center" style="font-size: 12px; line-height: 18px; font-family: Helvetica, Arial, sans-serif; color:#666666;">
-                        1234 Main Street, Anywhere, MA 01234, USA
+                        Airteam.camera
                         <br>
-                        <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">Unsubscribe</a>
+                        <a href="http://airteam.camera" target="_blank" style="color: #666666; text-decoration: none;"></a>
                         <span style="font-family: Arial, sans-serif; font-size: 12px; color: #444444;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-                        <a href="http://litmus.com" target="_blank" style="color: #666666; text-decoration: none;">View this email in your browser</a>
+                        <a href="http://airteam.camera" target="_blank" style="color: #666666; text-decoration: none;">Website</a>
                     </td>
                 </tr>
             </table>

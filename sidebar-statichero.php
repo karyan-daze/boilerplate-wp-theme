@@ -8,5 +8,7 @@
             Your browser does not support the video tag.
         </video>
 
+        <?php require get_template_directory() . '/page-templates/section-home-request.php' ?>
+
     </div><!-- #wrapper-static-hero -->
 
