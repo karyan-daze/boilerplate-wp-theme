@@ -34,6 +34,13 @@ function airteam_register_required_plugins() {
             'is_callable' => 'wpseo_init',
         ),
 
+        array(
+            'name'      => 'WP-Mail-SMTP',
+            'slug'      => 'wp-mail-smtp',
+            'required'  => true,
+            'source'    => 'https://downloads.wordpress.org/plugin/wp-mail-smtp.0.9.6.zip',
+        ),
+
     );
 
     /*
