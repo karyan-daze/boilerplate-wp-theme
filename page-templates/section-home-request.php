@@ -19,24 +19,41 @@ record_email:email@email.com
  *
  */
 ?>
-<div class="row">
-    <form role="form" name="record_information" method="POST" onsubmit="" action="<?php echo esc_url( site_url() . '/anfrage' ); ?>">
+<div class="overlay-desc">
+    <div class="row">
+        <div class="hero-block col-md-8 offset-md-2">
+    <h1 class="hero-title text-xs-center">Ihr Drohnenservice mit qualitätsgarantie</h1>
+
+    <h4 class="hero-subtitle text-xs-center">Drohnen Luftaufnahmen: professionell, schnell und sicher.</h4>
+    </div>
+        </div>
+    <div class="row">
+    <div class="col-md-6 text-xs-center offset-md-3">
+    <form role="form" class="home-request" name="record_information" method="POST" onsubmit="" action="<?php echo esc_url( site_url() . '/anfrage' ); ?>">
 
     <div class="form-group">
-        <div class="col-md-4"><?php _e('Foto- Videoaufnahmen', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('Foto- Videoaufnahmen', '') ?>"></div>
-        <div class="col-md-4"><?php _e('360 Panorama', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('360 Panorama', '') ?>"></div>
-            <div class="col-md-4"><?php _e('3D Modell', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('3D Modell', '') ?>"></div>
+        <div class="col-md-4 checkbox abc-checkbox abc-checkbox-primary">
+            <input id="record_type_1" class="styled" name="record_type[]" type="checkbox" value="<?php _e('Foto- Videoaufnahmen', '') ?>" />
+            <label for="record_type_1"><?php _e('Foto- Videoaufnahmen', '') ?></label>
+        </div>
+        <div class="col-md-4 checkbox abc-checkbox abc-checkbox-primary"><input id="record_type_2" class="styled" name="record_type[]" type="checkbox" value="<?php _e('360 Panorama', '') ?>"><label for="record_type_2"><?php _e('360 Panorama', '') ?></label></div>
+            <div class="col-md-4 checkbox abc-checkbox abc-checkbox-primary"><input id="record_type_3" class="styled" name="record_type[]" type="checkbox" value="<?php _e('3D Modell', '') ?>"><label for="record_type_3"><?php _e('3D Modell', '') ?></label></div>
 
     </div>
-    <div class="form-group">
-        <label class="control-label"><?php _e('Ort der Aufnahmen ','airteam') ?></label>
-        <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text" required="required" class="form-control" placeholder="Stadt" />
-    </div>
+        <div class="input-group input-group-lg request-input">
+            <span class="input-group-addon" id="sizing-addon1">
+                <i class="fa fa-map-marker"></i>
+            </span>
 
+            <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text" required="required" aria-describedby="sizing-addon1" class="form-control" placeholder="Woll soll unser Pilot hinkommen" />
+      <span class="input-group-btn">
+        <button class="btn btn-success btn-lg pull-right" type="submit"><?php _e('Anfrage absenden','airteam') ?></button>
+      </span>
+        </div>
 
         <input type="hidden" name="action" value="redirect_request">
-        <button class="btn btn-success btn-lg pull-right" type="submit"><?php _e('Anfrage absenden','airteam') ?></button>
         </form>
+    </div>
     </div>
 
 

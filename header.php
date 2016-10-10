@@ -68,8 +68,8 @@
                                         'walker' => new wp_bootstrap_navwalker()
                                     )
                             ); ?>
+                    <a class="open-modal pull-xs-right" href="#bitte!" data-toggle="modal" data-target="#myModal"><img style="margin-right:10px;" width="20px;" src="<?php echo get_stylesheet_directory_uri() . '/assets/static/open-modal.png' ?>"/><?= _e('So Funktoniert es', 'nh'); ?></a>
 
-                    <p><a href="#bitte!" data-toggle="modal" data-target="#myModal"><?= _e('Um Rückruf bitten', 'nh'); ?></a></p>
 
 
                 </div> <!-- .container -->

@@ -34,7 +34,7 @@ $row_class = 'row m-t-3 m-b-3'
                 <?php require get_template_directory() . '/page-templates/section-partners.php'; ?>
             </div>
 
-            <div class="container-fluid">
+            <div class="container-fluid" style="background-size:cover;background-image:url('<?php echo get_stylesheet_directory_uri() .'/assets/static/background.jpg'; ?>')">
                 <?php require get_template_directory() . '/page-templates/section-info.php'; ?>
 
             </div>
@@ -43,8 +43,12 @@ $row_class = 'row m-t-3 m-b-3'
                 <?php require get_template_directory() . '/page-templates/section-medias.php'; ?>
             </div>
 
-            <div class="container">
+            <div class="container-fluid">
                 <?php require get_template_directory() . '/page-templates/section-testimonials.php'; ?>
+            </div>
+
+            <div class="container-fluid">
+                <?php require get_template_directory() . '/page-templates/section-contact.php'; ?>
             </div>
     </div><!-- Container end -->
 

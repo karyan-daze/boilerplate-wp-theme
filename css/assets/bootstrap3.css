@@ -1,0 +1,63 @@
+/*
+Error: File to import not found or unreadable: ../../src/sass/bootstrap3/bootstrap/variables.
+       Load path: /Users/hendrikvlaanderen1990/PhpstormProjects/airteam/wp-content/themes/airteam.camera/sass
+        on line 8 of sass/assets/bootstrap3.scss
+
+3:  * Copyright 2011-2015 Twitter, Inc.
+4:  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+5:  *\/
+6: 
+7: // Core variables and mixins
+8: @import "../../src/sass/bootstrap3/bootstrap/variables";
+9: @import "../../src/sass/bootstrap3/bootstrap/mixins";
+10: 
+11: // Reset and dependencies
+12: @import "../../src/sass/bootstrap3/bootstrap/normalize";
+13: @import "../../src/sass/bootstrap3/bootstrap/print";
+
+Backtrace:
+sass/assets/bootstrap3.scss:8
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:45:in `import'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:313:in `visit_import'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:294:in `watch'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/plugin.rb:109:in `method_missing'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:360:in `watch_or_update'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/bin/sass:22:in `load'
+/Users/hendrikvlaanderen1990/.rbenv/versions/2.2.3/bin/sass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: ../../src/sass/bootstrap3/bootstrap/variables.\A        Load path: /Users/hendrikvlaanderen1990/PhpstormProjects/airteam/wp-content/themes/airteam.camera/sass\A         on line 8 of sass/assets/bootstrap3.scss\A \A 3:  * Copyright 2011-2015 Twitter, Inc.\A 4:  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)\A 5:  */\A 6: \A 7: // Core variables and mixins\A 8: @import \"../../src/sass/bootstrap3/bootstrap/variables\";\A 9: @import \"../../src/sass/bootstrap3/bootstrap/mixins\";\A 10: \A 11: // Reset and dependencies\A 12: @import \"../../src/sass/bootstrap3/bootstrap/normalize\";\A 13: @import \"../../src/sass/bootstrap3/bootstrap/print\";"; }

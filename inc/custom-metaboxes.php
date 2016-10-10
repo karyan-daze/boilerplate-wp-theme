@@ -218,6 +218,26 @@ function airteam_register_meta_boxes( $meta_boxes ) {
 
         }
 
+    $meta_boxes[] = array(
+        'id' => 'media_info',
+        'title' => __('Media Upload', 'airteam'),
+        'post_types' => array('medias'),
+        'context' => 'normal',
+        'priority' => 'high',
+        'fields' => array(
+            array(
+                'name' => __('Video or Image', 'airteam'),
+                'desc' => 'Upload your video or image',
+                'id' => 'media_file',
+                'type' => 'file_advanced',
+                'std' => 'Sed posuere consectetur est at lobortis.',
+                'class' => 'custom-class',
+                'clone' => false,
+            )
+
+
+        )
+    );
 
     // 2nd meta box
     return $meta_boxes;

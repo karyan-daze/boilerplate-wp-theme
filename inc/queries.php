@@ -50,18 +50,36 @@ function airteam_get_medias()
 
 // The Loop
     $count = 0;
-    while ($query->have_posts()) :
-        $count++;
-        $query->the_post();
+        while ($query->have_posts()) :
+            $count++;
+            $query->the_post();
+            global $post;
+            $medias = rwmb_meta( 'media_file' );
 
-        ?>
-        <div class="benefit <?php echo $class; ?>">
 
-            <div class="benefit-icon">
-                <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
+            ?>
+            <div class="media col-md-4">
+                <?php foreach ( $medias as $media ) :
+                if(!empty($media['url'])) : ?>
+
+                    <?php if( has_term( 'video', 'media_category' ) ) : ?>
+                        <video width="100%" height="" autoplay>
+                            <source src="<?php echo $media['url'] ?>" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                    <?php elseif( has_term( 'image', 'media_category' )):
+                        ?>
+                        <img src="<?php echo $media['url'] ?>"/>
+                        <?php endif;  ?>
+                <?php
+
+                endif;
+                endforeach;
+                    ?>
+
+                <h4><?php the_title(); ?></h4>
             </div>
-            <h4><?php the_title(); ?></h4>
-        </div>
     <?php endwhile;
 
     //wp_reset_query();
@@ -94,7 +112,7 @@ function airteam_get_benefits()
                 <div class="benefit-icon">
                 <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
                 </div>
-            <h4><?php the_title(); ?></h4>
+            <h4 class="text-xs-center"><?php the_title(); ?></h4>
         </div>
     <?php endwhile;
 
@@ -127,7 +145,6 @@ function airteam_get_partners()
             <div class="benefit-icon">
                 <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
             </div>
-            <h4><?php the_title(); ?></h4>
         </div>
     <?php endwhile;
 
@@ -194,14 +211,11 @@ function airteam_get_testimonials()
         ?>
         <div class="<?= $prefix ?> <?= $class; ?>">
 
-            <div class="<?php echo $prefix; ?> image">
+            <div class="<?php echo $prefix; ?>_image">
 
                 <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
             </div>
-
-            <p>
-                <?php the_content(); ?>
-            </p>
+             <div class="description"><?php the_content(); ?></div>
             <h4><?= $name ?>, <?= $job_title ?></h4>
         </div>
     <?php endwhile;
