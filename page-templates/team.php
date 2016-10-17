@@ -40,13 +40,14 @@
         <img class="hero-image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/static/preview.jpg" />
 
     <?php else : ?>
-        <img class="hero-image" src="<?php echo $image['full_url']; ?>" />
+        <img class="hero-image static-header" src="<?php echo $image['full_url']; ?>" />
 
     <?php endif; ?>
     <?php endforeach; ?>
-
-    <h3 class="text-xs-center"><?php echo $title ?></h3>
-
+    <div class="overlay-static">
+    <h1 class="text-xs-center"><?php echo $title ?></h1>
+        <div class="border-text-bottom center-block"></div>
+    </div>
     </div><!-- #wrapper-static-hero -->
 
 <?php
@@ -57,12 +58,10 @@ $row_class = 'row m-t-3 m-b-3'
 
         <div id="content">
 
-            <div class="container">
 
                 <?php require get_template_directory() . '/page-templates/section-team.php'; ?>
 
 
-            </div><!-- #row -->
 
     </div><!-- Container end -->
 

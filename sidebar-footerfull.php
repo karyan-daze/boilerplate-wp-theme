@@ -4,7 +4,11 @@
 
     <div class="wrapper" id="wrapper-footer-full">
 
-		<?php dynamic_sidebar( 'footerfull' ); ?>
+		<div class="row">
+                <?php dynamic_sidebar( 'footerfull' ); ?>
+
+
+        </div>
 
     </div><!-- #wrapper-footer-full -->
 

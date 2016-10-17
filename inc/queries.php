@@ -237,7 +237,7 @@ function airteam_get_teams()
     $query = new WP_Query($args);
     $count_posts = $query->found_posts;
 
-    $class = count_columns($count_posts);
+    $class = 'col-md-4';
 
 // The Loop
     $count = 0;
@@ -253,14 +253,56 @@ function airteam_get_teams()
             <div class="<?php echo $prefix; ?> image">
 
                 <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
+                <div class="team-overlay">
+                    <h4><?= $name ?></h4>
+                    <span><?= $job_title ?></span>
+                </div>
             </div>
 
-            <p>
-                <?php the_content(); ?>
-            </p>
-            <h4><?= $name ?>, <?= $job_title ?></h4>
         </div>
     <?php endwhile;
 
     //wp_reset_query();
+}
+
+
+function airteam_get_faqs(){
+    $prefix = 'faq';
+
+    $args = array(
+        'post_type' => array('faq'),
+        'post_status' => 'publish',
+    );
+
+// The Query
+    $query = new WP_Query($args);
+    $count_posts = $query->found_posts;
+
+    $class = count_columns($count_posts);
+
+// The Loop
+    $count = 0;
+    while ($query->have_posts()) :
+        $count++;
+        $query->the_post();
+
+?>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading-<?php echo $count ?>">
+                <h4 class="panel-title faq-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<?php echo $count ?>" aria-expanded="true" aria-controls="collapse-<?php echo $count ?>">
+                        <?php the_title(); ?>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+
+                </h4>
+            </div>
+            <div id="collapse-<?php echo $count ?>" class="faq-description panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-<?php echo $count ?>">
+<?php the_content(); ?>
+            </div>
+        </div>
+
+<?php
+    endwhile;
+
 }

@@ -86,10 +86,26 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                 'clone' => false,
             ),
             array(
+                'name'  => __( 'Youtube Embed Link', 'airteam' ),
+                'desc'  => 'Find it by right clicking on youtube video',
+                'id'    => $prefix3 . 'embed_link',
+                'type'  => 'text',
+                'std'   => 'https://www.youtube.com/embed/p2dOfiEGjRI',
+                'class' => 'custom-class',
+                'clone' => false,
+            ),
+            array(
                 'name'  => __( 'Image', 'airteam' ),
                 'desc'  => 'Hero Image',
                 'id'    => $prefix3 . 'hero_image',
-                'type'  => 'image',
+                'type'  => 'image_advanced',
+                'class' => 'custom-class',
+            ),
+            array(
+                'name'  => __( 'Video', 'airteam' ),
+                'desc'  => 'Hero Image',
+                'id'    => $prefix3 . 'hero_video',
+                'type'  => 'image_advanced',
                 'class' => 'custom-class',
             ),
         )
@@ -134,7 +150,7 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                         'name' => __('Main Image', 'airteam'),
                         'desc' => 'Team Image Main on the left',
                         'id' => $prefix3 . 'team_image',
-                        'type' => 'image',
+                        'type' => 'image_advanced',
                         'class' => 'custom-class',
                     ),
                     array(
@@ -190,7 +206,7 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                 'name' => __('Main Image', 'airteam'),
                 'desc' => 'Team Image Main on the left',
                 'id' => $prefix3 . 'team_image',
-                'type' => 'image',
+                'type' => 'image_advanced',
                 'class' => 'custom-class',
             ),
             array(

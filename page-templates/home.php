@@ -12,6 +12,9 @@
     <?php get_header(); ?>
 
 <?php
+
+$embed = get_post_meta(get_the_ID(), 'page_embed_link', true);
+
 get_sidebar('hero');
 
 get_sidebar('statichero');

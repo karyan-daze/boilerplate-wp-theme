@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Record Request
+ * Template Name: Pilot Request
  *
  * Template for displaying a two step contact form that sends an email.
  * We might also save it in a db to be sure
@@ -15,7 +15,6 @@ $images = rwmb_meta( 'page_hero_image' );
 
 ?>
     <div class="wrapper" id="wrapper-nav-only">
-
     </div><!-- #wrapper-static-hero -->
 
     <div class="wrapper" id="wrapper-index">
@@ -23,7 +22,7 @@ $images = rwmb_meta( 'page_hero_image' );
 
             <main id="main" class="site-main" role="main">
 
-                <?php require get_template_directory() . '/page-templates/section-request.php'; ?>
+                <?php require get_template_directory() . '/page-templates/section-pilot-request.php'; ?>
 
 
             </main><!-- #main -->

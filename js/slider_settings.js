@@ -21,6 +21,8 @@
         jQuery('.stop').on('click',function(){
             owl.trigger('autoplay.stop.owl')
         });
+
+
     });
 
 
