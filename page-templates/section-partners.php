@@ -9,7 +9,7 @@
     jQuery(document).ready(function(){
 
         jQuery("#owl-partners").owlCarousel({
-            autoHeight: true,
+            autoHeight: false,
             autoPlay: true,
             items : 5, //10 items above 1000px browser width
     });
