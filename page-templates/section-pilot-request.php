@@ -31,52 +31,56 @@ $prefix = 'pilot_'
 
         <form role="form" name="<?= $prefix ?>request" method="POST" onsubmit="return form_validation()" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
             <div class="form-group col-md-6">
-                <label class="control-label"><?php _e('Vorname', 'airteam') ?></label>
+                <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?></p>
                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="<?= $prefix ?>fname" type="text" required="required" class="form-control" placeholder="" />
             </div>
             <div class="form-group col-md-6">
-                <label class="control-label"><?php _e('Nachname', 'airteam') ?></label>
+                <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?></p>
                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="<?= $prefix ?>lname" type="text" required="required" class="form-control" />
             </div>
             <div class="form-group col-md-6">
-                <label class="control-label"><?php _e('Telefonnummer', 'airteam') ?></label>
+                <p class="text-xs-center big-label"><?php _e('Telefonnummer', 'airteam') ?></p>
                 <input maxlength="200" name="<?= $prefix ?>tel" type="text" required="required" class="form-control" placeholder="" />
             </div>
             <div class="form-group col-md-6">
-                <label class="control-label"><?php _e('E-mail-adresse', 'airteam') ?></label>
+                <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?></p>
                 <input maxlength="200" name="<?= $prefix ?>email" type="email" required="required" class="form-control" />
             </div>
 
             <div class="form-group center-block col-md-8 offset-md-2">
-                <label class="control-label"><?php _e('Wohnort','airteam') ?></label>
+                <p class="text-xs-center big-label"><?php _e('Wohnort','airteam') ?></p>
                 <input pattern="[a-zA-Z0-9 ]+" name="<?= $prefix ?>place" maxlength="100" type="text" required="required" class="form-control" />
 
             </div>
 
-            <div class="form-group center-block col-md-10 offset-md-1">
-                <p class="text-xs-center"><?php _e('Hast du','airteam') ?></p>
-                <label class="custom-control custom-checkbox">
-                    <input class="custom-control-input" name="<?= $prefix ?>required_info[]" type="checkbox" value="<?php _e('eine gewerbliche Drohnen Haftpﬂichtversicherung', 'airteam') ?>">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"><?php _e('eine gewerbliche Drohnen Haftpﬂichtversicherung', 'airteam') ?></span>
-                </label>
-                <label class="custom-control custom-checkbox">
-                    <input class="custom-control-input" name="<?= $prefix ?>required_info[]" type="checkbox" value="<?php _e('eine Aufstiegsgenehmigung', 'airteam') ?>">                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description"> <?php _e('eine Aufstiegsgenehmigung', 'airteam') ?></span>
-                </label>
+            <div class="form-group center-block col-md-12">
+                <p class="big-label text-xs-center"><?php _e('Hast du','airteam') ?></p>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="<?= $prefix ?>required_info[]" value="<?php _e('eine gewerbliche Drohnen Haftpﬂichtversicherung', 'airteam') ?>">
+                        <?php _e('eine gewerbliche Drohnen Haftpﬂichtversicherung', 'airteam') ?>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="<?= $prefix ?>required_info[]" value="<?php _e('eine Aufstiegsgenehmigung', 'airteam') ?>">
+                        <?php _e('eine Aufstiegsgenehmigung', 'airteam') ?>
+                    </label>
+                </div>
                 <input pattern="[a-zA-Z0-9 ]+" name="<?= $prefix ?>required_region" maxlength="100" type="text" required="required" class="form-control" placeholder="Fals ja, welches Bundesland" />
 
             </div>
 
             <div class="form-group center-block">
-                <label for="<?= $prefix ?>message"><?php _e('Deine Nachricht an uns', 'airteam'); ?></label>
+                <p class="big-label text-xs-center"><?php _e('Deine Nachricht an uns', 'airteam'); ?></p>
                 <textarea rows="10" name="<?= $prefix ?>message" cols="35" maxlength="100" required="required" class="form-control" placeholder=""></textarea>
                 </div>
 
 
-            <input type="hidden" name="action" value="<?= $prefix ?>form">
-            <button class="btn btn-success btn-lg pull-right" type="submit"><?php _e('Anfrage absenden','airteam') ?></button>
-
+            <input type="hidden" name="action" value="pilot_form">
+            <div class="center-block">
+            <button class="btn btn-success btn-lg submitBtn" type="submit"><?php _e('Anfrage absenden','airteam') ?></button>
+            </div>
         </form>
         </div>
 

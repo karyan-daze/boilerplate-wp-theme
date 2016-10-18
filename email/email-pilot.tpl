@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Anfrage von airteam.camera</title>
+<title>Pilot Anfrage von airteam.camera</title>
 <!--
 
    Airteam.camera template
@@ -210,16 +210,13 @@
                                                         <tr>
                                                              <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
                                                                   <table>
-                                                                      <tr><td>Art der Aufnahmen:</td><td>{{record_types}}</td>
-                                                                          <tr><td>Ort der Aufnahmen:</td><td> {{record_place}}</td></tr>
-                                                                      <tr><td>Ausführungszeitraum: </td><td>{{record_date_range}}</td></tr>
-                                                                      <tr><td>Genauer Tag: </td><td>{{record_day_date}}</td></tr>
-                                                                      <tr><td>Zusätzliche Anforderungen: </td><td>{{record_additional_services}}</td></tr>
-                                                                      <tr><td>Beschreibung: </td><td>{{record_description}}</td></tr>
+                                                                      <tr><td>Hast du: </td><td>{{record_infos}}</td>
+                                                                      <tr><td>Bundesland: </td><td>{{record_region}}</td></tr>
+                                                                      <tr><td>Nachricht: </td><td>{{record_message}}</td></tr>
                                                                       <tr><td>Name: </td><td>{{record_fname}} {{record_lname}}</td></tr>
-                                                                      <tr><td>Firma: </td><td>{{record_company}}</td></tr>
                                                                       <tr><td>Telefonnummer: </td><td>{{record_tel}}</td></tr>
                                                                       <tr><td>E-mail-adresse: </td><td>{{record_email}}</td></tr>
+                                                                      <tr><td>Wohnort:</td><td> {{record_place}}</td></tr>
                                                                   </table>
                                                              </td>
                                                         </tr>

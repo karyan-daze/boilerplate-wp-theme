@@ -102,6 +102,7 @@ h1, h2, h3, h4, h5 {
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 0px;
+  border:0;
 }
 
 .overlay-desc {
@@ -751,6 +752,9 @@ a:focus, a:hover {
 .page-template-pilot .navbar {
   background-color: #333;
 }
+.page-template-thankyou .navbar {
+  background-color: #333;
+}
 
 .stepwizard-step {
   .btn-primary {
@@ -1051,13 +1055,111 @@ a:focus, a:hover {
     font-size:15px;
   }
   label {
-    text-transform:uppercase;
-    font-size:15px;
-    font-weight:500;
-    display:block;
-    text-align:center;
   }
   .form-control {
     border-radius:1px;
+  }
+  .form-check-input {
+    margin-left: 0.5rem;
+  }
+  .form-group {
+    margin-top:2rem;
+    margin-bottom:2rem;
+  }
+  .form-control {
+    border-radius: 1px;
+  }
+  .custom-control-description {
+    text-transform:none;
+    font-weight:normal;
+  }
+}
+
+.filter-media {
+  .filter-image, .filter-video, .toggle {
+    float:left
+  }
+
+}
+.media iframe {
+  height: 400px;
+  zoom: 0.60;
+}
+.media {
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.big-label {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.setup-content {
+  .form-check-input {
+    margin-left: 0.5rem;
+  }
+  .form-group {
+    margin-top:2rem;
+    margin-bottom:2rem;
+  }
+  .form-control {
+    border-radius: 1px;
+  }
+  .nextBtn, .submitBtn {
+    background-color:$mainColor;
+    border-radius:1px;
+    color:#fff;
+    border:none;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+}
+.submitBtn {
+  background-color:$mainColor;
+  border-radius:1px;
+  color:#fff;
+  border:none;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+.form-control {
+  border-radius: 1px;
+}
+.center-block button {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}
+
+.request-offer {
+  padding: 40px;
+  border: 2px solid $mainColor;
+
+  .record-place {
+    border-left:0px;
+    &:hover, &:focus {
+      border-left:0;
+      border:1px solid rgba(0,0,0,.15);
+
+    }
+  }
+}
+.thank-you {
+  background-color:$mainColor;
+  .thank-you-text {
+    color:#fff;
+    h4 {
+      font-size:28px;
+    }
+  }
+  .monkey-image {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+form {
+  .form-check-label {
+    font-size:15px;
   }
 }

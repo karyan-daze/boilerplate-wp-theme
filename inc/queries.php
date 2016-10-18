@@ -55,31 +55,36 @@ function airteam_get_medias()
             $query->the_post();
             global $post;
             $medias = rwmb_meta( 'media_file' );
+            $embed = get_post_meta(get_the_ID(), 'media_embed_link', true);
+
 
 
             ?>
-            <div class="media col-md-4">
-                <?php foreach ( $medias as $media ) :
-                if(!empty($media['url'])) : ?>
+             <?php if($count < 3) :
+                $newClass = 'hide-0';
+                    elseif($count > 3) :
+                    $newClass = 'hide-1';
+            endif ?>
 
-                    <?php if( has_term( 'video', 'media_category' ) ) : ?>
-                        <video width="100%" height="" autoplay>
-                            <source src="<?php echo $media['url'] ?>" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+            <?php if( has_term( 'video', 'media_category' ) ) : ?>
+            <div class="media col-md-4 object-<?php echo $count ?> object-video <?php echo $newClass ?>">
 
-                    <?php elseif( has_term( 'image', 'media_category' )):
-                        ?>
-                        <img src="<?php echo $media['url'] ?>"/>
-                        <?php endif;  ?>
-                <?php
+            <iframe width="100%" height="100%" src="<?php echo $embed ?>?controls=0&cc_load_policy=1&fs=0&iv_load_policy=3&modestbranding=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+            <?php elseif( has_term( 'image', 'media_category' )): ?>
+            <div class="media col-md-4 object-<?php echo $count ?> object-image <?php echo $newClass ?>">
 
-                endif;
-                endforeach;
-                    ?>
+                <?php foreach ( $medias as $media ) : ?>
+                    <?php if(!empty($media['url'])) : ?>
+                    <img src="<?php echo $media['url'] ?>"/>
+                    <?php endif;  ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
 
                 <h4><?php the_title(); ?></h4>
             </div>
+
+
     <?php endwhile;
 
     //wp_reset_query();

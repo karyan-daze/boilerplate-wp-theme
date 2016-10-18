@@ -249,6 +249,15 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                 'std' => 'Sed posuere consectetur est at lobortis.',
                 'class' => 'custom-class',
                 'clone' => false,
+            ),
+            array(
+                'name' => __('Video embed Link', 'airteam'),
+                'desc' => 'Upload your video or image',
+                'id' => 'media_embed_link',
+                'type' => 'text',
+                'std' => 'https://www.youtube.com/embed/elMlxOuFDak',
+                'class' => 'custom-class',
+                'clone' => false,
             )
 
 

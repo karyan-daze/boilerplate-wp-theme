@@ -3,17 +3,16 @@
  * The form for sending Email
  *
  *
-record_type:3D Modell
-record_date_range:10/14/2016 - 11/24/2016
-record_day:3D Modell
-record_day_date:10/19/2016
-record_additional_services:Bildbearbeitung
-record_fname:Ahed
-record_lname:Aly
-record_lname:Firma
-record_tel:Tel
-record_email:email@email.com
-
+ * record_type:3D Modell
+ * record_date_range:10/14/2016 - 11/24/2016
+ * record_day:3D Modell
+ * record_day_date:10/19/2016
+ * record_additional_services:Bildbearbeitung
+ * record_fname:Ahed
+ * record_lname:Aly
+ * record_lname:Firma
+ * record_tel:Tel
+ * record_email:email@email.com
  *
  *
  *
@@ -22,17 +21,17 @@ record_email:email@email.com
 
 <?php
 
-if(isset($_POST["record_type"])) :
-foreach($_POST["record_type"] as $record) :
-    if($record == "Foto- Videoaufnahmen") :
-        $record_1 = "Foto- Videoaufnahmen";
-    elseif($record == "360 Panorama") :
-        $record_2 = "360 Panorama";
-    elseif($record == "3D Modell") :
-        $record_3 = "3D Modell";
-    endif;
+if (isset($_POST["record_type"])) :
+    foreach ($_POST["record_type"] as $record) :
+        if ($record == "Foto- Videoaufnahmen") :
+            $record_1 = "Foto- Videoaufnahmen";
+        elseif ($record == "360 Panorama") :
+            $record_2 = "360 Panorama";
+        elseif ($record == "3D Modell") :
+            $record_3 = "3D Modell";
+        endif;
 
-endforeach;
+    endforeach;
 
 endif;
 ?>
@@ -40,91 +39,133 @@ endif;
 
 <div class="row">
     <div class="container">
+        <div class="request-offer col-md-8 offset-md-2">
 
-        <div class="stepwizard col-md-offset-3">
-            <div class="stepwizard-row setup-panel">
-                <div class="stepwizard-step">
-                    <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                </div>
-                <div class="stepwizard-step">
-                    <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <div class="stepwizard offset-md-2">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step">
+                        <a href="#step-1" class="btn btn-primary btn-circle">1</a>
+                    </div>
+                    <div class="stepwizard-step">
+                        <a href="#step-2" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    </div>
                 </div>
             </div>
+
+            <form role="form" name="record_information" method="POST" onsubmit="return form_validation()"
+                  action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                <div class="row setup-content" id="step-1">
+                    <div class="">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="form-group">
+                                <p class="text-xs-center big-label"><?php _e('Art der Aufnahmen', 'airteam') ?></p>
+                                <label class="form-check-inline"><?php _e('Foto- Videoaufnahmen', 'airteam') ?><input
+                                        class="form-check-input" name="record_type[]" type="checkbox"
+                                        value="<?php _e('Foto- Videoaufnahmen', '') ?>" <?php if (isset($record_1)): echo 'checked'; endif; ?>></label>
+                                <label class="form-check-inline"><?php _e('360 Panorama', 'airteam') ?><input
+                                        class="form-check-input" name="record_type[]" type="checkbox"
+                                        value="<?php _e('360 Panorama', '') ?>" <?php if (isset($record_2)): echo 'checked'; endif; ?>></label>
+                                <label class="form-check-inline"><?php _e('3D Modell', 'airteam') ?><input
+                                        class="form-check-input" name="record_type[]" type="checkbox"
+                                        value="<?php _e('3D Modell', '') ?>" <?php if (isset($record_3)): echo 'checked'; endif; ?>></label>
+
+                            </div>
+                            <div class="form-group">
+                                <p class="text-xs-center big-label"><?php _e('Ort der Aufnahmen ', 'airteam') ?></p>
+                                <div class="input-group input-group-lg request-input">
+                                    <span class="input-group-addon" id="sizing-addon1">
+                                    <i class="fa fa-map-marker"></i>
+                                    </span>
+
+                                    <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text"
+                                           required="required" aria-describedby="sizing-addon1" class="form-control record-place"
+                                           placeholder="Stadt" value="<?php if (isset($_POST["record_place"])) : echo $_POST["record_place"]; endif; ?>">
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <p class="text-xs-center big-label"><?php _e('Ausführungszeitraum', 'airteam') ?></p>
+                                <input maxlength="100" name="record_date_range" type="text" class="form-control"
+                                       placeholder=""/>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-xs-center form-check-inline"><?php _e('Genauer Tag', 'airteam') ?><input class="form-check-input" name="record_day" type="checkbox"></label>
+                                <input class="record-day form-control"
+                                    name="record_day_date" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <p class="text-xs-center big-label"><?php _e('Zusätzliche Anforderungen', 'airteam') ?></p>
+                                <label class="form-check-inline"><?php _e('Filmschnitt/Imagefilm', 'airteam') ?><input
+                                        class="form-check-input" name="record_additional_services[]" type="checkbox"
+                                        value="<?php _e('Filmschnitt/Imagefilm', 'airteam') ?>"></label>
+                                <label class="form-check-inline"><?php _e('Bildbearbeitung', 'airteam') ?><input
+                                        class="form-check-input" name="record_additional_services[]" type="checkbox"
+                                        value="<?php _e('Bildbearbeitung', 'airteam') ?>"></label>
+                            </div>
+
+                            <div class="form-group">
+
+                                <p class="text-xs-center big-label"><?php _e('Beschreibung', 'airteam'); ?></p>
+                                <textarea rows="10" name="record_description" cols="35" maxlength="100"
+                                          required="required" class="form-control" placeholder=""></textarea>
+
+                            </div>
+                            <div class="center-block">
+
+                                <button class="col-md-4 btn btn-primary nextBtn btn-lg"
+                                        type="button"><?php _e('Weiter', 'airteam') ?></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row setup-content" id="step-2">
+                    <div class="">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?></p>
+                                <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_fname" type="text"
+                                       required="required" class="form-control" placeholder=""/>
+                                </div>
+                                <div class="col-md-6">
+                                <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?></p>
+                                <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_lname" type="text"
+                                       required="required" class="form-control"/>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <p class="text-xs-center big-label"><?php _e('Firma', 'airteam') ?></p>
+                                <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_company" type="text"
+                                       required="required" class="form-control"/>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                <p class="text-xs-center big-label"><?php _e('Telefonnummer', 'airteam') ?></p>
+                                <input maxlength="200" name="record_tel" type="text" required="required"
+                                       class="form-control" placeholder=""/>
+                                    </div>
+                                <div class="col-md-6">
+                                <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?></p>
+                                <input maxlength="200" name="record_email" type="email" required="required"
+                                       class="form-control"/>
+                                    </div>
+
+                            </div>
+                            <input type="hidden" name="action" value="request_form">
+                            <div class="center-block">
+                                <button class="btn btn-success btn-lg submitBtn"
+                                        type="submit"><?php _e('Anfrage absenden', 'airteam') ?></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <form role="form" name="record_information" method="POST" onsubmit="return form_validation()" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
-            <div class="row setup-content" id="step-1">
-                <div class="col-xs-6 col-md-offset-3">
-                    <div class="col-md-12">
-                        <h3> Step 1</h3>
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Art der Aufnahmen','airteam') ?></label>
-                            <?php _e('Foto- Videoaufnahmen', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('Foto- Videoaufnahmen', '') ?>" <?php if(isset($record_1)): echo 'checked'; endif;?>>
-                            <?php _e('360 Panorama', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('360 Panorama', '') ?>" <?php if(isset($record_2)): echo 'checked'; endif;?>>
-                            <?php _e('3D Modell', '') ?><input name="record_type[]" type="checkbox" value="<?php _e('3D Modell', '') ?>" <?php if(isset($record_3)): echo 'checked'; endif;?>>
-
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Ort der Aufnahmen ','airteam') ?></label>
-                            <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text" required="required" class="form-control" placeholder="Stadt" value="<?php if(isset($_POST["record_place"])) : echo $_POST["record_place"]; endif; ?>"/>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Ausführungszeitraum','airteam') ?></label>
-                            <input maxlength="100" name="record_date_range" type="text" class="form-control" placeholder="" />
-                            <?php _e('Genauer Tag', 'airteam') ?><input name="record_day" type="checkbox" value="<?php _e('3D Modell', 'airteam') ?>"><input name="record_day_date" type="text">
-
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Zusätzliche Anforderungen','airteam') ?></label>
-                            <?php _e('Filmschnitt/Imagefilm', 'airteam') ?><input name="record_additional_services[]" type="checkbox" value="<?php _e('Filmschnitt/Imagefilm', 'airteam') ?>">
-                            <?php _e('Bildbearbeitung', 'airteam') ?><input name="record_additional_services[]" type="checkbox" value="<?php _e('Bildbearbeitung', 'airteam') ?>">
-                        </div>
-
-                        <div class="form-group">
-
-                            <label for="record_description"><?php _e('Beschreibung', 'airteam'); ?></label>
-                            <textarea rows="10" name="record_description" cols="35" maxlength="100" required="required" class="form-control" placeholder=""></textarea>
-
-                        </div>
-
-                        <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" ><?php _e('Weiter','airteam') ?></button>
-                    </div>
-                </div>
-            </div>
-            <div class="row setup-content" id="step-2">
-                <div class="col-xs-6 col-md-offset-3">
-                    <div class="col-md-12">
-                        <h3> Step 2</h3>
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Vorname', 'airteam') ?></label>
-                            <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_fname" type="text" required="required" class="form-control" placeholder="" />
-                            <label class="control-label"><?php _e('Nachname', 'airteam') ?></label>
-                            <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_lname" type="text" required="required" class="form-control" />
-
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Firma','airteam') ?></label>
-                            <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_company" type="text" required="required" class="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label"><?php _e('Telefonnummer', 'airteam') ?></label>
-                            <input maxlength="200" name="record_tel" type="text" required="required" class="form-control" placeholder="" />
-                            <label class="control-label"><?php _e('E-mail-adresse', 'airteam') ?></label>
-                            <input maxlength="200" name="record_email" type="email" required="required" class="form-control" />
-
-                        </div>
-                        <input type="hidden" name="action" value="request_form">
-                        <button class="btn btn-success btn-lg pull-right" type="submit"><?php _e('Anfrage absenden','airteam') ?></button>
-                    </div>
-                </div>
-            </div>
-        </form>
-
     </div>
-    </div>
+</div>
 
 <script>
     $ = jQuery;
@@ -152,18 +193,29 @@ endif;
         var customer_email = document.forms["record_information"]["record_email"].value;
         var at_position = customer_email.indexOf("@");
         var dot_position = customer_email.lastIndexOf(".");
-        if (at_position<1 || dot_position<at_position+2 || dot_position+2>=customer_email.length) {
+        if (at_position < 1 || dot_position < at_position + 2 || dot_position + 2 >= customer_email.length) {
             alert("Given email address is not valid.");
             return false;
         }
     }
 
     $(document).ready(function () {
-        $(function() {
+        $(function () {
             $('input[name="record_day_date"]').daterangepicker({
-                    singleDatePicker: true,
-                    showDropdowns: true
-                });
+                singleDatePicker: true,
+                showDropdowns: true
+            });
+            $('input[name="record_day_date"]').hide();
+
+            jQuery('input[name="record_day"]').change(function() {
+                if(jQuery(this).prop('checked')) {
+                    $('input[name="record_day_date"]').show();
+                } else {
+                    $('input[name="record_day_date"]').hide();
+                }
+
+            });
+
         });
 
 
@@ -189,7 +241,7 @@ endif;
             }
         });
 
-        allNextBtn.click(function(){
+        allNextBtn.click(function () {
             var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
                 nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
@@ -197,8 +249,8 @@ endif;
                 isValid = true;
 
             $(".form-group").removeClass("has-error");
-            for(var i=0; i<curInputs.length; i++){
-                if (!curInputs[i].validity.valid){
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
                     isValid = false;
                     $(curInputs[i]).closest(".form-group").addClass("has-error");
                 }

@@ -7236,7 +7236,8 @@ a.skip-link {
   padding: 6px 0;
   font-size: 12px;
   line-height: 1.428571429;
-  border-radius: 0px; }
+  border-radius: 0px;
+  border: 0; }
 
 .overlay-desc {
   background: transparent;
@@ -7743,6 +7744,9 @@ a:focus, a:hover {
 .page-template-pilot .navbar {
   background-color: #333; }
 
+.page-template-thankyou .navbar {
+  background-color: #333; }
+
 .stepwizard-step .btn-primary {
   background-color: #333; }
 
@@ -7973,11 +7977,88 @@ a:focus, a:hover {
     font-size: 28px; }
   .pilot_form p {
     font-size: 15px; }
-  .pilot_form label {
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: 500;
-    display: block;
-    text-align: center; }
   .pilot_form .form-control {
     border-radius: 1px; }
+  .pilot_form .form-check-input {
+    margin-left: 0.5rem; }
+  .pilot_form .form-group {
+    margin-top: 2rem;
+    margin-bottom: 2rem; }
+  .pilot_form .form-control {
+    border-radius: 1px; }
+  .pilot_form .custom-control-description {
+    text-transform: none;
+    font-weight: normal; }
+
+.filter-media .filter-image, .filter-media .filter-video, .filter-media .toggle {
+  float: left; }
+
+.media iframe {
+  height: 400px;
+  zoom: 0.60; }
+
+.media {
+  transition: visibility 0s, opacity 0.5s linear; }
+
+.big-label {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 600; }
+
+.setup-content .form-check-input {
+  margin-left: 0.5rem; }
+
+.setup-content .form-group {
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
+
+.setup-content .form-control {
+  border-radius: 1px; }
+
+.setup-content .nextBtn, .setup-content .submitBtn {
+  background-color: #1FDB9B;
+  border-radius: 1px;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  text-transform: uppercase; }
+
+.submitBtn {
+  background-color: #1FDB9B;
+  border-radius: 1px;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  text-transform: uppercase; }
+
+.form-control {
+  border-radius: 1px; }
+
+.center-block button {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+
+.request-offer {
+  padding: 40px;
+  border: 2px solid #1FDB9B; }
+  .request-offer .record-place {
+    border-left: 0px; }
+    .request-offer .record-place:hover, .request-offer .record-place:focus {
+      border-left: 0;
+      border: 1px solid rgba(0, 0, 0, 0.15); }
+
+.thank-you {
+  background-color: #1FDB9B; }
+  .thank-you .thank-you-text {
+    color: #fff; }
+    .thank-you .thank-you-text h4 {
+      font-size: 28px; }
+  .thank-you .monkey-image {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto; }
+
+form .form-check-label {
+  font-size: 15px; }
