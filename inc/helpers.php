@@ -43,8 +43,12 @@ function count_columns($count){
             break;
         case '0';
             $class = 'col-md-12';
-
             break;
+
+        default:
+            $class = 'col-md-3';
+
+
     }
 
     return $class;

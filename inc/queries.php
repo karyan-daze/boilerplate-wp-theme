@@ -140,9 +140,9 @@ function airteam_get_partners()
         $query->the_post();
 
         ?>
-        <div class="benefit <?php echo $class; ?>">
+        <div class="partner">
 
-            <div class="benefit-icon">
+            <div class="partner-image ">
                 <img src="<?php the_post_thumbnail_url('medium'); ?>"/>
             </div>
         </div>
