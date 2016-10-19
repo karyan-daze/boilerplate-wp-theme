@@ -11,6 +11,7 @@
  *
  */
 
+$GLOBALS['meta_tags'] = 'Airteam, Drohnen';
 
 require get_template_directory() . '/inc/setup.php';
 

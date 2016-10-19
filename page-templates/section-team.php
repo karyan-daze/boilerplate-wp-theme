@@ -16,7 +16,7 @@
 
     <div class="col-md-6">
         <div class="team-about">
-        <h2><?php echo $main_title ?></h2>
+        <h2 class="text-xs-center text-md-left"><?php echo $main_title ?></h2>
         <p><?php echo $main_description ?></p>
         </div>
     </div>

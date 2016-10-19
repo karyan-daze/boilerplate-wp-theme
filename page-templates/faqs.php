@@ -30,8 +30,10 @@ $images = rwmb_meta( 'page_hero_image' );
                 <img class="hero-image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/static/preview.jpg" />
 
             <?php else : ?>
-                <img class="hero-image static-header" src="<?php echo $image['full_url']; ?>" />
-
+                <picture class="hero-image static-header">
+                    <img src="<?php echo $image['full_url'] ?>" sizes=""
+                         srcset="<?php echo $image['srcset']; ?>">
+                </picture>
             <?php endif; ?>
         <?php endforeach; ?>
         <div class="overlay-static">

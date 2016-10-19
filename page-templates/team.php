@@ -31,16 +31,24 @@
         $main_title = get_post_meta(get_the_ID(), 'page_team_title', true);
         $main_images = rwmb_meta( 'page_team_image' );
 
+
 ?>
 
 
 <div class="wrapper" id="wrapper-static-hero">
     <?php foreach ( $images as $image ) : ?>
     <?php if(empty($image['url'])) : ?>
+
+
         <img class="hero-image" src="<?php echo get_stylesheet_directory_uri() ?>/assets/static/preview.jpg" />
 
     <?php else : ?>
-        <img class="hero-image static-header" src="<?php echo $image['full_url']; ?>" />
+            <picture class="hero-image static-header">
+                <img src="<?php echo $image['full_url'] ?>" sizes=""
+                     srcset="<?php echo $image['srcset']; ?>">
+            </picture>
+
+
 
     <?php endif; ?>
     <?php endforeach; ?>

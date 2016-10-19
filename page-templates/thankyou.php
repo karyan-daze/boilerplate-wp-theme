@@ -34,8 +34,8 @@ get_header();
                             <div class="thank-you-text">
                                 <h4 class="text-xs-center"><?= _e('Vielen Dank!', 'airteam') ?></h4>
 
-                                <p class="text-xs-center"><?= _e('Lorem Ipsum consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                                    ut labore et dolore magna aliquyam erat.', 'airteam') ?></p>
+                                <?php if ($_SERVER['HTTP_REFERER'] == site_url(). '/anfrage/') : ?><p class="text-xs-center"><?= _e('Wir prüfen deine Angaben und melden uns in Kürze bei dir (max. 48 Stunden) mit allen nötigen Informationen für die Durchführung des Drohnenflugs. ', 'airteam') ?></p><?php endif; ?>
+                                <?php if ($_SERVER['HTTP_REFERER'] == site_url(). '/pilot-werden/') : ?><p class="text-xs-center"><?= _e('Wir freuen uns sehr, dass du bei AIRTEAM Pilot werden willst. Bevor du lals AIRTEAM Pilot loslegen kannst dauert es noch ein wenig, bis wir deine Eingaben geprüft haben. Sobald das geschehen ist (max. 48 Stunden), melden wir uns bei dir. ', 'airteam') ?></p><?php endif; ?>
                             </div>
                         </div>
                         </div>
