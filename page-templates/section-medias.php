@@ -32,17 +32,19 @@
             if(jQuery(this).prop('checked')) {
                 // hide all the images
                 // show the videos
+                jQuery('.object-image.hide-0').show(400, "linear");
+                jQuery('.object-video.hide-1').hide(400, "linear");
+                jQuery('.object-video.hide-0').hide(400, "linear");
+            }
+            if (jQuery(this).prop('checked') == false){
+
+
+
                 jQuery('.object-image.hide-0').hide(400, "linear");
                 jQuery('.object-image.hide-1').hide(400, "linear");
                 jQuery('.object-image').hide(400, "linear");
                 jQuery('.object-video').show(400, "linear");
                 console.log(jQuery(this).prop('checked'));
-            }
-            if (jQuery(this).prop('checked') == false){
-                jQuery('.object-image.hide-0').show(400, "linear");
-                jQuery('.object-video.hide-1').hide(400, "linear");
-                jQuery('.object-video.hide-0').hide(400, "linear");
-
 
             }
 
