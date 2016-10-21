@@ -52,9 +52,10 @@
 
         jQuery('#load-more').on('click', function(){
             if(jQuery('#toggle-event').prop('checked') == true){
-                jQuery('.object-video.hide-1').show(400);
-            } else {
                 jQuery('.object-image.hide-1').show(400, "linear");
+            } else {
+
+                jQuery('.object-video.hide-1').show(400);
             }
         })
     })
