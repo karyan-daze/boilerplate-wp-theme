@@ -68,8 +68,16 @@
                                         'walker' => new wp_bootstrap_navwalker()
                                     )
                             ); ?>
-                    <a class="open-modal pull-xs-right" href="#bitte!" data-toggle="modal" data-target="#myModal"><img style="margin-right:10px;" width="20px;" src="<?php echo get_stylesheet_directory_uri() . '/assets/static/open-modal.png' ?>"/><?= _e('So Funktoniert es', 'nh'); ?></a>
+                    <a class="open-modal pull-xs-right" href="#bitte!" data-toggle="modal" data-target="#myModal"><img style="margin-right:10px;" width="20px;" src="<?php echo get_stylesheet_directory_uri() . '/assets/static/open-modal.png' ?>"/><?= _e('So Funktoniert es', 'airteam'); ?></a>
+                    <li class="contact nav-item dropdown pull-xs-right">
 
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kontakt</a>
+
+                        <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+                            <a href="tel:4916096810041" class="dropdown-item" href="#"><i class="fa fa-mobile" aria-hidden="true"></i>+4916096810041</a>
+                            <a class="dropdown-item" href="/impressum"><i class="fa fa-angle-right"></i>Email & Anschrift</a>
+                        </div>
+                    </li>
 
 
                 </div> <!-- .container -->

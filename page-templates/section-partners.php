@@ -9,8 +9,9 @@
     jQuery(document).ready(function(){
 
         jQuery("#owl-partners").owlCarousel({
+            pagination:true,
             autoHeight: false,
-            autoPlay: true,
+            autoPlay: false,
             items : 5, //10 items above 1000px browser width
     });
 

@@ -1,7 +1,6 @@
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 <div id="medias" class="<?php echo $row_class; ?>">
-        <h2 class="title text-xs-center"><?php _e('Media','airteam'); ?></h2>
 
 
             <div class="row"><div class="filter-media col-md-4 offset-md-4">
@@ -13,7 +12,7 @@
             <?php airteam_get_medias(); ?>
             <div class="row">
                 <div class="col-md-4 offset-md-4">
-                    <div class="btn btn-primary" id="load-more">Load More</div>
+                    <div class="btn btn-primary btn-lg" id="load-more"><?php _e('Weitere Laden','') ?></div>
                 </div>
                 </div>
 </div>

@@ -14,7 +14,7 @@ $title = get_post_meta(get_the_ID(), 'page_title', true);
 $images = rwmb_meta( 'page_hero_image' );
 
 ?>
-    <div class="wrapper" id="wrapper-nav-only">
+    <div class="wrapper" id="wrapper-nav-only   ">
 
     </div><!-- #wrapper-static-hero -->
 

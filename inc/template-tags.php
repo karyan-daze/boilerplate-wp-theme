@@ -35,7 +35,7 @@ function understrap_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
+	echo '<span class="posted-on"><i class="fa fa-calendar-check-o" style="margin-right:10px;"></i>' . $posted_on . '</span><span class="byline"><i class="fa fa-user" style="margin-right:10px;"></i> ' . $byline . '</span>';
 
 }
 endif;
@@ -56,7 +56,7 @@ function understrap_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', __( ', ', 'understrap' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'understrap' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links"><i class="fa fa-tags" area-hidden="true"></i>' . __( 'Tagged %1$s', 'understrap' ) . '</span>', $tags_list );
 		}
 	}
 

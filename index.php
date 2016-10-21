@@ -11,19 +11,14 @@
  * @package understrap
  */
 
-get_header(); ?>
+get_header();
 
-    <?php
-    if ( is_front_page() && is_home() ) {
 
-        get_sidebar('hero'); 
+?>
 
-        get_sidebar('statichero');
-        
-    } else {
-    // Do nothing...or?
-    }
-    ?>
+<div class="wrapper" id="wrapper-nav-only   ">
+
+</div><!-- #wrapper-static-hero -->
 
     <div class="wrapper" id="wrapper-index">
         
@@ -68,7 +63,7 @@ get_header(); ?>
             </div><!-- .row -->
            
        </div><!-- Container end -->
-        
+
     </div><!-- Wrapper end -->
 
 <?php get_footer(); ?>

@@ -5,7 +5,14 @@
  * @package understrap
  */
 
-get_header(); ?>
+get_header();
+
+
+?>
+<div class="wrapper" id="wrapper-nav-only   ">
+
+</div><!-- #wrapper-static-hero -->
+
 <div class="wrapper" id="single-wrapper">
     
     <div  id="content" class="container">
@@ -20,14 +27,6 @@ get_header(); ?>
 
                         <?php get_template_part( 'loop-templates/content', 'single' ); ?>
 
-                        <?php the_post_navigation(); ?>
-
-                        <?php
-                        // If comments are open or we have at least one comment, load up the comment template
-                        if ( comments_open() || get_comments_number() ) :
-                            comments_template();
-                        endif;
-                        ?>
                         
                     <?php endwhile; // end of the loop. ?>
 
