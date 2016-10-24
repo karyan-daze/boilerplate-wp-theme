@@ -244,6 +244,110 @@ function airteam_register_meta_boxes( $meta_boxes ) {
 
         }
 
+
+    // Get the post to Set a Metabox ONLY for the Team page template.
+    if ( is_admin() ) {
+        if (isset($_GET['post'])) $post_id = $_GET['post'];
+        elseif (isset($_POST['post_ID'])) $post_id = $_POST['post_ID'];
+
+        // This causes bug for removing pictures on the page.
+        if (isset($post_id)) :
+            $template_file = get_post_meta($post_id, '_wp_page_template', TRUE);
+// check for a template type
+            if ($template_file == 'page-templates/contact.php') {
+                $meta_boxes[] = array(
+                    'id' => 'contact_info',
+                    'title' => __('Contact Info', 'airteam'),
+                    'post_types' => array('page'),
+                    'context' => 'normal',
+                    'priority' => 'high',
+                    'fields' => array(
+                        array(
+                            'name' => __('Main Title', 'airteam'),
+                            'desc' => 'Format: Title',
+                            'id' => $prefix3 . 'contact_title',
+                            'type' => 'text',
+                            'std' => 'Wir freuen uns auf sie',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Phone Number', 'airteam'),
+                            'desc' => 'Format: Title',
+                            'id' => $prefix3 . 'phone',
+                            'type' => 'text',
+                            'std' => '+40394309',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Phone Title', 'airteam'),
+                            'desc' => 'Text for the phone numbers',
+                            'id' => $prefix3 . 'phone_text',
+                            'type' => 'textarea',
+                            'class' => 'custom-class',
+                        ),
+                        array(
+                            'name' => __('SMS text', 'airteam'),
+                            'desc' => 'Text for the SMS field',
+                            'id' => $prefix3 . 'sms_text',
+                            'type' => 'textarea',
+                            'class' => 'custom-class',
+                        ),
+                        array(
+                            'name' => __('SMS number', 'airteam'),
+                            'desc' => 'Number for sending SMS to',
+                            'id' => $prefix3 . 'sms',
+                            'type' => 'text',
+                            'std' => '+403-4-0344',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Text for Email', 'airteam'),
+                            'desc' => 'thomas.gorski@airteam.cameraEmail text to be displayed',
+                            'id' => $prefix3 . 'email_title',
+                            'type' => 'text',
+                            'std' => 'Schreiben Sie uns',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Email address', 'airteam'),
+                            'desc' => 'Email to send too',
+                            'id' => $prefix3 . 'email',
+                            'type' => 'text',
+                            'std' => 'thomas.gorski@airteam.camera',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Company Address Title', 'airteam'),
+                            'desc' => 'Title address for the company',
+                            'id' => $prefix3 . 'address_text',
+                            'type' => 'text',
+                            'std' => 'Unsere Adresse',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Company Address', 'airteam'),
+                            'desc' => 'Address for the company',
+                            'id' => $prefix3 . 'address',
+                            'type' => 'text',
+                            'std' => 'Rigaerstr. 67 10247 Berlin',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+
+
+
+                    )
+                );
+            };
+        endif;
+        };
+
     $meta_boxes[] = array(
         'id' => 'media_info',
         'title' => __('Media Upload', 'airteam'),

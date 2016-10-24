@@ -84,6 +84,24 @@ endif;
 
                             </div>
                             <div class="form-group">
+                                <input pattern="[a-zA-Z0-9 ]+" name="record_street" maxlength="100" type="text"
+                                       required="required" aria-describedby="sizing-addon1" class="form-control"
+                                       placeholder="<?php _e('Strasse', 'airteam') ?>" value="">
+                            </div>
+                            <div class="form-group">
+                                <input pattern="[a-zA-Z0-9 ]+" name="record_zip" maxlength="100" type="text"
+                                       required="required" aria-describedby="sizing-addon1" class="form-control"
+                                       placeholder="<?php _e('Postleitzahl','airteam') ?>" value="">
+
+                            </div>
+                            <div class="form-group">
+                                <input pattern="[a-zA-Z0-9 ]+" name="record_city" maxlength="100" type="text"
+                                       required="required" aria-describedby="sizing-addon1" class="form-control"
+                                       placeholder="<?php _e('Stadt', 'airteam') ?>" value="">
+
+                            </div>
+
+                            <div class="form-group">
                                 <p class="text-xs-center big-label"><?php _e('Ausführungszeitraum', 'airteam') ?></p>
                                 <input maxlength="100" name="record_date_range" type="text" class="form-control"
                                        placeholder=""/>

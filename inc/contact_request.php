@@ -42,8 +42,6 @@ function airteam_redirect_request(){
     else :
         return;
 
-
-
         endif;
 }
 
@@ -63,111 +61,96 @@ function airteam_send_email_to_admin() {
         // TODO Sanitize the POST field
         //
 
+        sanitize($_POST);
+
         // Generate email content
         // Send to appropriate email
 
 
-        // TODO record_type can be an array DONE
-        // TODO record_additional_services can be an array DONE
+        $prefix = 'record_';
+        $vars = array('place', 'description', 'additional_services', 'fname', 'lname', 'company', 'street', 'city', 'zip', 'tel', 'email', 'type', 'day_date', 'date_range');
 
+        $ok = 1;
+        $emailVars = array();
+        // TODO test this whole thing tomorrow!
+        // then line 97 can be removed!!
 
-        if(isset($_POST["record_day_date"])) : $record_day_date = $_POST["record_day_date"]; else : $record_day_date = 'keine'; endif;
-        if(isset($_POST["record_date_range"])) :
-            $record_date_range = $_POST["record_date_range"];
-        else :  $record_date_range = 'keine'; endif;
-
-        // print array as comma separated values
-
-        if(isset($_POST["record_type"])) :
-
-            $record_types = $_POST["record_type"];
-        //this is an array so let's create a string
-            $record_types = implode(', ', $record_types);
-        else :
-            $record_types = 'keine';
-        endif;
-
-
-
-        if(isset($_POST["record_description"])) : $record_description = $_POST["record_description"]; else : $record_description = 'keine'; endif;
-        if(isset($_POST["record_place"])) : $record_place = $_POST["record_place"]; else : $record_place = 'keine';  endif;
-
-
-            if(isset($_POST["record_additional_services"])) :
-                $record_additional_services = $_POST["record_additional_services"];
-                $record_additional_services = implode(', ', $record_additional_services);
+        foreach ($vars as $value) {
+            if (!isset($_POST[$prefix . $value])) :
+                $emailVars[] = $prefix.$value."=>".$_POST[$prefix . $value];
+            // Add the Emailvars here.
             else :
-                $record_additional_services = 'keine';
+                $ok = 0;
             endif;
 
-        if(isset($_POST["record_fname"])) : $record_fname = $_POST["record_fname"]; else : $record_fname = 'leer'; endif;
-        if(isset($_POST["record_lname"])) : $record_lname = $_POST["record_lname"]; else : $record_lname = 'leer'; endif;
-        if(isset($_POST["record_company"])) : $record_company = $_POST["record_company"]; else : $record_compnay = 'leer'; endif;
-        if(isset($_POST["record_tel"])) : $record_tel = $_POST["record_tel"]; else : $record_tel = 'leer'; endif;
-        if(isset($_POST["record_email"])) : $record_email = $_POST["record_email"]; else : $record_email = 'leer'; endif;
+        }
+
+        $email = filter_email($_POST[$prefix . 'email']);
 
 
-    } else {
+        // we need to implode some stuff
+        $record_additional_services = $_POST["record_additional_services"];
+        $record_additional_services = implode(', ', $record_additional_services);
+        $record_types = $_POST["record_type"];
+        $record_types = implode(', ', $record_types);
 
-        return;
-    }
-
-    $to = $GLOBALS['email'];
-    $subject = "Aufnahme airteam.camera";
-    $emailTemplate = get_template_directory().'/email/email.tpl';
-
-
-
-
-    $emailValues =  array(
-        'record_types' => $record_types,
-        'record_date_range' => $record_date_range,
-        'record_day_date' => $record_day_date,
-        'record_description' => $record_description,
-        'record_place' => $record_place,
-        'record_additional_services' => $record_additional_services,
-        'record_fname' => $record_fname,
-        'record_lname' => $record_lname,
-        'record_company' => $record_company,
-        'record_tel' => $record_tel,
-        'record_email' => $record_email,
-        'logo_path' => get_template_directory_uri() . '/assets/static/airy_logo.png',
-    );
+        $emailValues = array(
+            'record_types' => $record_types,
+            'record_date_range' => $_POST[$prefix . 'date_range'],
+            'record_day_date' => $_POST[$prefix . 'day_date'],
+            'record_description' => $_POST[$prefix . 'description'],
+            'record_place' => $_POST[$prefix . 'place'],
+            'record_additional_services' => $record_additional_services,
+            'record_fname' => $_POST[$prefix . 'fname'],
+            'record_lname' => $_POST[$prefix . 'lname'],
+            'record_company' => $_POST[$prefix . 'company'],
+            'record_street' => $_POST[$prefix . 'street'],
+            'record_city' => $_POST[$prefix . 'city'],
+            'record_zip' => $_POST[$prefix . 'zip'],
+            'record_tel' => $_POST[$prefix . 'tel'],
+            'record_email' => $email,
+            'logo_path' => get_template_directory_uri() . '/assets/static/airy_logo.png',
+        );
 
 
-
-    $emailHtml = new EmailTemplateParser($emailTemplate);
-
-    $emailHtml->setVars($emailValues);
-
-    add_filter( 'wp_mail_content_type', 'set_html_content_type' );
-    $emailHtml->output();
-    $status = wp_mail($to, $subject, $emailHtml->output());
-    // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
-    remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
-
-    //TODO add something in a database to make sure data is backed up if something is missed
-
-    $email_status = send_confirmation_mail($record_email, $record_fname, $record_lname, 'project-request');
-
-    // Database connection
-    // And send email
-
-    $site_url = get_site_url();
-    $succes_page = '/anfrage/vielen-dank';
-    $url = $site_url.$succes_page;
-
-    // Redirection to the success page
-    if ($status == true):
-        wp_safe_redirect( $url);
+        $to = $GLOBALS['email'];
+        $subject = "Aufnahme airteam.camera";
+        $emailTemplate = get_template_directory() . '/email/email.tpl';
 
 
-    else :
-        var_dump($status);
-        //wp_safe_redirect( $url, $status );
+        $emailHtml = new EmailTemplateParser($emailTemplate);
+
+        $emailHtml->setVars($emailValues);
+
+        add_filter('wp_mail_content_type', 'set_html_content_type');
+        $emailHtml->output();
+        $status = wp_mail($to, $subject, $emailHtml->output());
+        // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
+        remove_filter('wp_mail_content_type', 'set_html_content_type');
+
+        //TODO add something in a database to make sure data is backed up if something is missed
+
+        $email_status = send_confirmation_mail($email, $_POST['record_fname'], $_POST['record_lname'], 'project-request');
+
+        // Database connection
+        // And send email
+
+        $site_url = get_site_url();
+        $succes_page = '/anfrage/vielen-dank';
+        $url = $site_url . $succes_page;
+
+        // Redirection to the success page
+        if ($status == true):
+            wp_safe_redirect($url);
+
+
+        else :
+            var_dump($status);
+            //wp_safe_redirect( $url, $status );
         endif;
 
-    exit;
+        exit;
+    }
 }
 add_action( 'admin_post_nopriv_request_form', 'airteam_send_email_to_admin' );
 add_action( 'admin_post_request_form', 'airteam_send_email_to_admin' );
@@ -202,6 +185,7 @@ function airteam_pilot_request_to_admin() {
     if ( ! empty( $_POST ) ) {
         // TODO Sanitize the POST field
         //
+        sanitize($_POST);
 
         // Generate email content
         // Send to appropriate email
@@ -346,3 +330,24 @@ function send_confirmation_mail($email, $fname, $lname, $type) {
 
 }
 
+
+function filter_email($email){
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    if (empty($email)) {
+        throw new \InvalidArgumentException('Invalid email address');
+    }
+}
+
+function sanitize($input) {
+    if (is_array($input)) {
+        foreach($input as $var=>$val) {
+            $output[$var] = sanitize($val);
+        }
+    }
+    else {
+
+        $input  = cleanInput($input);
+        $output = mysql_real_escape_string($input);
+    }
+    return $output;
+}
