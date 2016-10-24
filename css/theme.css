@@ -7174,8 +7174,14 @@ a.skip-link {
     .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
       background: #869791; }
 
+body {
+  font-family: "Open Sans", sans-serif; }
+
 a {
   color: #1FDB9B; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Open Sans", sans-serif; }
 
 #wrapper-static-hero {
   padding-top: 0px; }
@@ -7988,12 +7994,18 @@ a:focus, a:hover {
     text-transform: none;
     font-weight: normal; }
 
-.filter-media .filter-image, .filter-media .filter-video, .filter-media .toggle {
-  float: left; }
+.filter-media {
+  padding-bottom: 20px; }
+  .filter-media .filter-image, .filter-media .filter-video, .filter-media .toggle {
+    float: left;
+    padding-left: 0px;
+    padding-right: 0px; }
+  .filter-media .filter-image.col-md-2 {
+    padding-left: 10px; }
 
 .media iframe {
   height: 400px;
-  zoom: 0.60; }
+  zoom: 0.49; }
 
 .media {
   transition: visibility 0s, opacity 0.5s linear; }
@@ -8189,6 +8201,12 @@ form .form-check-label {
     margin-right: 15px;
     width: 25px; }
 
+#yt {
+  position: relative;
+  cursor: pointer;
+  width: 500px;
+  height: 500px; }
+
 #load-more {
   background-color: #101011;
   color: #fff;
@@ -8325,3 +8343,64 @@ form .form-check-label {
   color: #fff;
   font-size: 15px;
   font-weight: 400; }
+
+.onoffswitch {
+  position: relative;
+  width: 84px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+.onoffswitch-checkbox {
+  display: none; }
+
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  height: 36px;
+  padding: 0;
+  line-height: 36px;
+  border: 2px solid #CCCCCC;
+  border-radius: 36px;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease-in; }
+
+.onoffswitch-label:before {
+  content: "";
+  display: block;
+  width: 36px;
+  margin: 0px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50px;
+  right: 46px;
+  border: 2px solid #CCCCCC;
+  border-radius: 36px;
+  transition: all 0.3s ease-in 0s; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #333333; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #333333; }
+
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  left: 0px; }
+
+.media:hover {
+  opacity: 0.8; }
+
+.media i {
+  top: 55%;
+  left: 50%;
+  position: absolute;
+  margin-left: -25px;
+  margin-top: -30px;
+  font-size: 45px;
+  color: #fff;
+  cursor: pointer; }
+  .media i:hover {
+    opacity: 0.5; }

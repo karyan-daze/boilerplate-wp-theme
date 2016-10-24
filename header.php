@@ -75,7 +75,7 @@
 
                         <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
                             <a href="tel:4916096810041" class="dropdown-item" href="#"><i class="fa fa-mobile" aria-hidden="true"></i>+4916096810041</a>
-                            <a class="dropdown-item" href="/kontakt"><i class="fa fa-angle-right"></i>Email & Anschrift</a>
+                            <a class="dropdown-item" href="<?= site_url(); ?>/kontakt"><i class="fa fa-angle-right"></i>Email & Anschrift</a>
                         </div>
                     </li>
 

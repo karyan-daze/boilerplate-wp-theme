@@ -96,6 +96,7 @@ class Social_Widget extends WP_Widget {
 			echo '<li><a href="'.$instance['instagram'].'" class="fa fa-instagram"></a></li>';
 			echo '<li><a href="'.$instance['linkedin'].'" class="fa fa-linkedin"></a></li>';
 			echo '<li><a href="'.$instance['xing'].'" class="fa fa-xing"></a></li>';
+			echo '<li><a href="'.$instance['facebook'].'" class="fa fa-facebook"></a></li>';
 			echo $args['text_area_after'];
 		}
 		echo $args['after_widget'];
@@ -128,9 +129,14 @@ class Social_Widget extends WP_Widget {
 		$twitter = ! empty( $instance['twitter'] ) ? $instance['twitter'] : __( 'twitter', 'airteam' );
 		$xing = ! empty( $instance['xing'] ) ? $instance['xing'] : __( 'xing', 'airteam' );
 		$linkedin = ! empty( $instance['linkedin'] ) ? $instance['linkedin'] : __( 'linkedin', 'airteam' );
+		$facebook = ! empty( $instance['facebook'] ) ? $instance['facebook'] : __( 'facebook', 'airteam' );
 
 
 		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'facebook' ); ?>"><?php _e( 'facebook link:' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'facebook' ); ?>" name="<?php echo $this->get_field_name( 'facebook' ); ?>" type="text" value="<?php echo esc_attr( $facebook ); ?>">
+		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'youtube' ); ?>"><?php _e( 'youtube link:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'youtube' ); ?>" name="<?php echo $this->get_field_name( 'youtube' ); ?>" type="text" value="<?php echo esc_attr( $youtube ); ?>">
@@ -180,6 +186,7 @@ class Social_Widget extends WP_Widget {
 		$instance['instagram'] = ( ! empty( $new_instance['instagram'] ) ) ? strip_tags( $new_instance['instagram'] ) : '';
 		$instance['twitter'] = ( ! empty( $new_instance['twitter'] ) ) ? strip_tags( $new_instance['twitter'] ) : '';
 		$instance['linkedin'] = ( ! empty( $new_instance['linkedin'] ) ) ? strip_tags( $new_instance['linkedin'] ) : '';
+		$instance['facebook'] = ( ! empty( $new_instance['facebook'] ) ) ? strip_tags( $new_instance['facebook'] ) : '';
 
 		return $instance;
 	}

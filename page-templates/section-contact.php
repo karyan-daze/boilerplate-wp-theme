@@ -11,7 +11,7 @@
         Luftaufnahmen Bedürfnisse.
     </p>
 
-    <div class="text-xs-center m-t-3"><button class="btn btn-success btn-lg btn-contact">JETZT ANFRAGEN</button>
+    <div class="text-xs-center m-t-3"><a class="btn btn-success btn-lg btn-contact" href="<?php site_url() .'/anfrage' ?>">JETZT ANFRAGEN</a>
     </div>
 
 </div>

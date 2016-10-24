@@ -55,29 +55,40 @@ function airteam_get_medias()
             $query->the_post();
             global $post;
             $medias = rwmb_meta( 'media_file' );
-            $embed = get_post_meta(get_the_ID(), 'media_embed_link', true);
+            $video_id = get_post_meta(get_the_ID(), 'media_embed_link', true);
+
 
 
 
             ?>
-             <?php if($count < 3) :
+             <?php if($count < 6) :
                 $newClass = 'hide-0';
-                    elseif($count > 3) :
+                    elseif($count > 6) :
                     $newClass = 'hide-1';
             endif ?>
 
             <?php if( has_term( 'video', 'media_category' ) ) : ?>
-            <div class="media col-md-4 object-<?php echo $count ?> object-video <?php echo $newClass ?>">
 
-            <iframe width="100%" height="100%" src="<?php echo $embed ?>?controls=0&cc_load_policy=1&fs=0&iv_load_policy=3&modestbranding=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
+            <div class="media col-md-4 object-<?php echo $count ?> object-video <?php echo $newClass ?>" data-href="http://www.youtube.com/watch?v=<?php echo $video_id ?>&amp;fs=1&amp;autoplay=1" data-title="<?php the_title(); ?>">
+
+    <!--            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/--><?php //echo $video_id ?><!--?controls=0&cc_load_policy=1&fs=0&iv_load_policy=3&modestbranding=0&showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>-->
+            <img src="http://img.youtube.com/vi/<?php echo $video_id ?>/0.jpg" />
+            <i class="fa fa-play" aria-hidden="true"></i>
             <?php elseif( has_term( 'image', 'media_category' )): ?>
-            <div class="media col-md-4 object-<?php echo $count ?> object-image <?php echo $newClass ?>">
 
-                <?php foreach ( $medias as $media ) : ?>
-                    <?php if(!empty($media['url'])) : ?>
-                    <img src="<?php echo $media['url'] ?>"/>
-                    <?php endif;  ?>
-                <?php endforeach; ?>
+
+                <?php foreach ( $medias as $media ) :
+              if(!empty($media['url'])) :
+             $image_id = $media['ID']; ?>
+
+                   <div class="media col-md-4 object-<?php echo $count ?> object-image <?php echo $newClass ?>" data-href="<?php echo $media['url'] ?>" data-title="<?php the_title(); ?>">
+
+                  <?php
+
+                    $image = RWMB_Image_Field::file_info( $image_id, array( 'size' => 'medium_large' ) );
+            echo '<img src="' . $image['url'] . '" width="' . $image['width'] . '" height="' . $image['height'] . '">';
+            endif;
+            endforeach; ?>
             <?php endif; ?>
 
 

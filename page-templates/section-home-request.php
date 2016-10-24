@@ -33,7 +33,7 @@ record_email:email@email.com
 
     <div class="form-group">
         <div class="col-md-4 checkbox abc-checkbox abc-checkbox-primary">
-            <input id="record_type_1" class="styled" name="record_type[]" type="checkbox" value="<?php _e('Foto- Videoaufnahmen', '') ?>" />
+            <input id="record_type_1" class="styled" name="record_type[]" type="checkbox" checked value="<?php _e('Foto- Videoaufnahmen', '') ?>" />
             <label for="record_type_1"><?php _e('Foto- Videoaufnahmen', '') ?></label>
         </div>
         <div class="col-md-4 checkbox abc-checkbox abc-checkbox-primary"><input id="record_type_2" class="styled" name="record_type[]" type="checkbox" value="<?php _e('360 Panorama', '') ?>"><label for="record_type_2"><?php _e('360 Panorama', '') ?></label></div>
@@ -45,7 +45,7 @@ record_email:email@email.com
                 <i class="fa fa-map-marker"></i>
             </span>
 
-            <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text" required="required" aria-describedby="sizing-addon1" class="form-control" placeholder="Woll soll unser Pilot hinkommen" />
+            <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text" required="required" aria-describedby="sizing-addon1" class="form-control" placeholder="<?php _e('Adresse', 'airteam') ?>" />
       <span class="input-group-btn">
         <button class="btn btn-success btn-lg pull-right" type="submit"><?php _e('Anfrage absenden','airteam') ?></button>
       </span>

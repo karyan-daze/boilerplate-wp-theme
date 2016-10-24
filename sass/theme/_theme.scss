@@ -18,17 +18,16 @@ $baseFont: 'Open Sans', sans-serif;
 }
 
 body {
-  //font-family: $baseFont;
+  font-family: $baseFont;
 }
 // link color
 a {
   color:$mainColor;
-}
 
+}
 h1, h2, h3, h4, h5 {
-  //font-family: $baseFont;
+  font-family: $baseFont;
 }
-
 #wrapper-static-hero {
   padding-top: 0px;
 }
@@ -37,7 +36,6 @@ h1, h2, h3, h4, h5 {
   width: 200px;
 
 }
-
 .navbar-brand img {
   width: 200px;
 }
@@ -1061,14 +1059,20 @@ a:focus, a:hover {
 }
 
 .filter-media {
+  padding-bottom:20px;
   .filter-image, .filter-video, .toggle {
-    float:left
+    float:left;
+    padding-left:0px;
+    padding-right:0px;
+  }
+  .filter-image.col-md-2 {
+    padding-left:10px;
   }
 
 }
 .media iframe {
   height: 400px;
-  zoom: 0.60;
+  zoom: 0.49;
 }
 .media {
   transition: visibility 0s, opacity 0.5s linear;
@@ -1335,6 +1339,12 @@ form {
     }
   }
 }
+#yt {
+  position:relative;
+  cursor:pointer;
+  width:500px;
+  height:500px;
+}
 #load-more {
   background-color:$mainBlack;
   color:#fff;
@@ -1491,4 +1501,59 @@ form {
   color:#fff;
   font-size:15px;
   font-weight: 400;
+}
+.col-md-1.filter-image, .col-md-1.filter-video {
+
+}
+.onoffswitch {
+  position: relative; width: 84px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  height: 36px; padding: 0; line-height: 36px;
+  border: 2px solid #CCCCCC; border-radius: 36px;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+  content: "";
+  display: block; width: 36px; margin: 0px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  left:50px;
+  right: 46px;
+  border: 2px solid #CCCCCC; border-radius: 36px;
+  transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+  background-color: #333333;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  border-color: #333333;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+  left: 0px;
+}
+
+.media {
+  &:hover {
+    opacity:0.8;
+  }
+i {
+  top: 55%;
+  left: 50%;
+  position: absolute;
+  margin-left: -25px;
+  margin-top: -30px;
+  font-size: 45px;
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.5;
+  }
+}
 }

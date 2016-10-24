@@ -261,11 +261,11 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                 'clone' => false,
             ),
             array(
-                'name' => __('Video embed Link', 'airteam'),
-                'desc' => 'Upload your video or image',
+                'name' => __('Video ID', 'airteam'),
+                'desc' => 'Video ID from youtube',
                 'id' => 'media_embed_link',
                 'type' => 'text',
-                'std' => 'https://www.youtube.com/embed/elMlxOuFDak',
+                'std' => 'elMlxOuFDak',
                 'class' => 'custom-class',
                 'clone' => false,
             )
