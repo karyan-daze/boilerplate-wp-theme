@@ -210,13 +210,14 @@
                                                         <tr>
                                                              <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
                                                                   <table>
-                                                                      <tr><td>Hast du: </td><td>{{record_infos}}</td>
-                                                                      <tr><td>Bundesland: </td><td>{{record_region}}</td></tr>
-                                                                      <tr><td>Nachricht: </td><td>{{record_message}}</td></tr>
-                                                                      <tr><td>Name: </td><td>{{record_fname}} {{record_lname}}</td></tr>
+                                                                      <tr><td>Vorname: </td><td>{{record_fname}}</td></tr>
+                                                                      <tr><td>Nachname: </td><td>{{record_lname}}</td></tr>
                                                                       <tr><td>Telefonnummer: </td><td>{{record_tel}}</td></tr>
                                                                       <tr><td>E-mail-adresse: </td><td>{{record_email}}</td></tr>
                                                                       <tr><td>Wohnort:</td><td> {{record_place}}</td></tr>
+                                                                      <tr><td>Hast du: </td><td>{{record_infos}}</td>
+                                                                      <tr><td>Bundesland: </td><td>{{record_region}}</td></tr>
+                                                                      <tr><td>Nachricht: </td><td>{{record_message}}</td></tr>
                                                                   </table>
                                                              </td>
                                                         </tr>

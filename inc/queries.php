@@ -251,9 +251,11 @@ function airteam_get_teams()
         $query->the_post();
         $name = get_post_meta(get_the_ID(), $prefix.'_name', true);
         $job_title = get_post_meta(get_the_ID(), $prefix.'_job_title', true);
+        $link = get_post_meta(get_the_ID(), $prefix.'_link', true);
+
 
         ?>
-        <div class="<?= $prefix ?> <?= $class; ?>">
+        <a href="<?php echo $link ?>"><div class="<?= $prefix ?> <?= $class; ?>">
 
             <div class="<?php echo $prefix; ?> image">
 
@@ -264,7 +266,7 @@ function airteam_get_teams()
                 </div>
             </div>
 
-        </div>
+        </div></a>
     <?php endwhile;
 
     //wp_reset_query();

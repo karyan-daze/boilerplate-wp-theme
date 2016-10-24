@@ -64,6 +64,15 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                 'class' => 'custom-class',
                 'clone' => false,
             ),
+            array(
+                'name' => __('Link', 'airteam'),
+                'desc' => 'Link to the Team member website',
+                'id' => $prefix2 . 'link',
+                'type' => 'text',
+                'std' => '',
+                'class' => 'custom-class',
+                'clone' => false,
+            ),
         )
     );
 
@@ -143,7 +152,7 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                         'name' => __('Team Description', 'airteam'),
                         'desc' => 'Description next to the image',
                         'id' => $prefix3 . 'team_description',
-                        'type' => 'text',
+                        'type' => 'textarea',
                         'class' => 'custom-class',
                     ),
                     array(
@@ -171,6 +180,7 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                         'class' => 'custom-class',
                         'clone' => false,
                     ),
+
 
 
                 )

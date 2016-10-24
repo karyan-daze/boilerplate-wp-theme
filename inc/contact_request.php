@@ -13,7 +13,7 @@ record_email:email@email.com
  */
 
 
-$GLOBALS['email'] = 'h.k.vlaanderen@gmail.com';
+$GLOBALS['email'] = get_option('email');
 
 function airteam_redirect_request(){
     if ( ! empty( $_POST ) ) :
@@ -148,7 +148,7 @@ function airteam_send_email_to_admin() {
 
     //TODO add something in a database to make sure data is backed up if something is missed
 
-
+    $email_status = send_confirmation_mail($record_email, $record_fname, $record_lname, 'project-request');
 
     // Database connection
     // And send email
@@ -275,7 +275,7 @@ function airteam_pilot_request_to_admin() {
 
     //TODO add something in a database to make sure data is backed up if something is missed
 
-
+    $status = send_confirmation_mail($record_email, $record_fname, $record_lname, 'pilot-request');
 
     // Database connection
     // And send email
@@ -311,4 +311,38 @@ function replace_tags($template, $placeholders){
     return str_replace(array_keys($placeholders), $placeholders, $template);
 }
 
+function send_confirmation_mail($email, $fname, $lname, $type) {
+
+    $to = $email;
+    $subject = "Bestätigung airteam.camera";
+    $emailTemplate = get_template_directory().'/email/email-confirmation.tpl';
+
+
+
+    //TODO define which variables we need to send
+    //TODO define the Subject
+    //TODO define what the text in the email should be for the two different Types of Request ( pilot anfrage or normal anfrage )
+    // The $type variables handles the selection of the subject and the variables that need to be passed and maybe the template
+    $emailValues =  array(
+        'record_fname' => $fname,
+        'record_lname' => $lname,
+        'logo_path' => get_template_directory_uri() . '/assets/static/airy_logo.png',
+    );
+
+
+
+    $emailHtml = new EmailTemplateParser($emailTemplate);
+
+    $emailHtml->setVars($emailValues);
+
+    add_filter( 'wp_mail_content_type', 'set_html_content_type' );
+    $emailHtml->output();
+    $status = wp_mail($to, $subject, $emailHtml->output());
+    // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
+    remove_filter( 'wp_mail_content_type', 'set_html_content_type' );
+
+    return $status;
+
+
+}
 

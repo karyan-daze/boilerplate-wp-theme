@@ -20,6 +20,14 @@ require get_template_directory() . '/inc/activation.php';
 add_action( 'tgmpa_register', 'airteam_register_required_plugins' );
 
 /**
+ *
+ * Admin area for adding the Settings for Options in the Theme
+ *
+ */
+
+require get_template_directory() . '/inc/admin.php';
+
+/**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
