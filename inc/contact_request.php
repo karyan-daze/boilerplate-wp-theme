@@ -61,7 +61,7 @@ function airteam_send_email_to_admin() {
         // TODO Sanitize the POST field
         //
 
-        sanitize($_POST);
+        $_POST = sanitize($_POST);
 
         // Generate email content
         // Send to appropriate email
@@ -183,7 +183,7 @@ function airteam_pilot_request_to_admin() {
     if ( ! empty( $_POST ) ) {
         // TODO Sanitize the POST field
         //
-        sanitize($_POST);
+        $_POST = sanitize($_POST);
 
         // Generate email content
         // Send to appropriate email
@@ -297,7 +297,7 @@ function airteam_send_contact_to_admin() {
         // TODO Sanitize the POST field
         //
 
-        sanitize($_POST);
+        $_POST = sanitize($_POST);
 
         // Generate email content
         // Send to appropriate email
@@ -324,32 +324,18 @@ function airteam_send_contact_to_admin() {
 
 
         // we need to implode some stuff
-        $record_additional_services = $_POST["record_additional_services"];
-        $record_additional_services = implode(', ', $record_additional_services);
-        $record_types = $_POST["record_type"];
-        $record_types = implode(', ', $record_types);
 
         $emailValues = array(
-            'record_types' => $record_types,
-            'record_date_range' => $_POST[$prefix . 'date_range'],
-            'record_day_date' => $_POST[$prefix . 'day_date'],
-            'record_description' => $_POST[$prefix . 'description'],
-            'record_place' => $_POST[$prefix . 'place'],
-            'record_additional_services' => $record_additional_services,
-            'record_fname' => $_POST[$prefix . 'fname'],
-            'record_lname' => $_POST[$prefix . 'lname'],
-            'record_company' => $_POST[$prefix . 'company'],
-            'record_street' => $_POST[$prefix . 'street'],
-            'record_city' => $_POST[$prefix . 'city'],
-            'record_zip' => $_POST[$prefix . 'zip'],
-            'record_tel' => $_POST[$prefix . 'tel'],
-            'record_email' => $_POST['record_email'],
+            'fname' => $_POST['fname'],
+            'lname' => $_POST['lname'],
+            'email' => $_POST['record_email'],
+            'message' => $_POST['message'],
         );
 
 
         $to = $GLOBALS['email'];
         $subject = "Aufnahme airteam.camera";
-        $emailTemplate = get_template_directory() . '/email/email.tpl';
+        $emailTemplate = get_template_directory() . '/email/contact_email.tpl';
 
 
         $emailHtml = new EmailTemplateParser($emailTemplate);
@@ -364,30 +350,30 @@ function airteam_send_contact_to_admin() {
 
         //TODO add something in a database to make sure data is backed up if something is missed
 
-        $email_status = send_confirmation_mail($_POST['record_email'], $_POST['record_fname'], $_POST['record_lname'], 'project-request');
+        //$email_status = send_confirmation_mail($_POST['email'], $_POST['fname'], $_POST['lname'], 'contact-request');
 
         // Database connection
         // And send email
 
+
+        // Redirection to the success page
         $site_url = get_site_url();
-        $succes_page = '/anfrage/vielen-dank';
-        $url = $site_url . $succes_page;
+        $succes_page = '/kontakt/';
+        $url = $site_url.$succes_page;
 
         // Redirection to the success page
         if ($status == true):
-            wp_safe_redirect($url);
+            wp_safe_redirect( $url);
 
 
         else :
             var_dump($status);
             //wp_safe_redirect( $url, $status );
         endif;
-
-        exit;
     }
 }
-add_action( 'admin_post_nopriv_request_form', 'airteam_send_email_to_admin' );
-add_action( 'admin_post_request_form', 'airteam_send_email_to_admin' );
+add_action( 'admin_post_nopriv_contact_form', 'airteam_send_contact_to_admin' );
+add_action( 'admin_post_contact_form', 'airteam_send_contact_to_admin' );
 
 function set_html_content_type() {
     return 'text/html';
@@ -411,7 +397,9 @@ function send_confirmation_mail($email, $fname, $lname, $type) {
         elseif($type == 'pilot-request') :
             $subject = 'Pilot Anfrage Bestätigung';
     $body = 'Wir freuen uns sehr, dass du bei AIRTEAM Pilot werden willst. Bevor du als AIRTEAM Pilot loslegen kannst dauert es noch ein wenig, bis wir deine Eingaben geprüft haben. Sobald das geschehen ist (max. 48 Stunden), melden wir uns bei dir. ';
-            endif;
+        elseif($type == 'contact-request') :
+            $subject = 'Kontakt Anfrage Bestätigung';
+    endif;
 
     //TODO define which variables we need to send
     //TODO define the Subject

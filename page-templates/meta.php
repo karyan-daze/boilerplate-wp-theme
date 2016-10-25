@@ -48,7 +48,7 @@ $row_class = 'row m-t-3 m-b-3'
 
             <div class="row">
 
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-8 offset-md-2">
                     <?php while ( have_posts() ) : the_post(); ?>
 
                         <?php get_template_part( 'loop-templates/content', 'page' ); ?>

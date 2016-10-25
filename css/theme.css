@@ -7183,6 +7183,11 @@ a {
 h1, h2, h3, h4, h5 {
   font-family: "Open Sans", sans-serif; }
 
+h2 {
+  font-size: 28px;
+  color: #4D4D4D;
+  margin-bottom: 2rem; }
+
 #wrapper-static-hero {
   padding-top: 0px; }
 
@@ -7738,9 +7743,6 @@ a:focus, a:hover {
 
 #wrapper-footer-full, #wrapper-static-hero {
   background-color: transparent; }
-
-.page-template-contact .navbar {
-  background-color: #333; }
 
 .page-template-pilot .navbar {
   background-color: #333; }
@@ -8415,3 +8417,55 @@ form .form-check-label {
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .btn-primary.dropdown-toggle.focus, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover {
   background-color: #1FDB9B;
   border-color: #1FDB9B; }
+
+.btn-success.focus, .btn-success:focus, .btn-success:hover {
+  background-color: #1FDB9B;
+  border-color: #1FDB9B; }
+
+.special-background {
+  background-color: #1FDB9B; }
+
+.contact_form {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  .contact_form textarea, .contact_form input {
+    background-color: transparent;
+    border-color: #fff; }
+  .contact_form .submitBtn {
+    background-color: #101011;
+    margin-top: 30px; }
+  .contact_form .big-label {
+    color: #fff;
+    font-weight: normal; }
+
+.special.border-grid {
+  border-color: #1FDB9B;
+  margin: 50px; }
+  .special.border-grid div.contact-text, .special.border-grid a {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px; }
+  .special.border-grid .contact-icon {
+    width: 150px;
+    min-height: 150px; }
+  .special.border-grid h1 {
+    font-size: 55px;
+    color: #1FDB9B;
+    font-weight: normal;
+    padding-bottom: 25px;
+    text-transform: uppercase; }
+
+.form-map iframe {
+  width: 100%; }
+
+.form-map .col-md-6.map {
+  padding: 0px; }
+
+.page-template-contact .wrapper {
+  padding-bottom: 0px; }
+
+.type-page .entry-title {
+  display: none; }

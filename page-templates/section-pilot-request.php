@@ -27,7 +27,7 @@ $prefix = 'pilot_'
 
         <div class="<?= $prefix ?>form col-md-6 offset-md-2">
             <h1 class="text-xs-center"><?php _e('Du willst Drohnenpilot bei AIRTEAM werden?', 'airteam') ?></h1>
-            <p class="text-xs-center"><?php _e('Dann schicke uns hier und jetzt direkt deine Anfrage oder greif einfach zum Hörer +49 30 123456789', 'airteam'); ?></p>
+            <p class="text-xs-center"><?php _e('Dann schicke uns hier und jetzt direkt deine Anfrage oder greif einfach zum Hörer', 'airteam'); ?><a href="tel:016096810041">016096810041</a></p>
 
         <form role="form" name="<?= $prefix ?>request" method="POST" onsubmit="return form_validation()" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
             <div class="form-group col-md-6">
