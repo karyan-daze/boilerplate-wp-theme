@@ -21,8 +21,9 @@ $email_text = get_post_meta(get_the_ID(), 'page_email_title', true);
 $email = get_post_meta(get_the_ID(), 'page_email', true);
 $address_text = get_post_meta(get_the_ID(), 'page_address_text', true);
 $address = get_post_meta(get_the_ID(), 'page_address', true);
+$map_embed = get_post_meta(get_the_ID(), 'page_maps', true);
 
-
+$contactform = get_post_meta(get_the_ID(), 'page_contact', true);
 
 
 ?>
@@ -31,10 +32,10 @@ $address = get_post_meta(get_the_ID(), 'page_address', true);
     </div><!-- #wrapper-static-hero -->
 
     <div class="wrapper" id="wrapper-index">
-    <div  id="content" class="container">
+    <div  id="content">
 
             <main id="main" class="site-main" role="main">
-
+                <div class="container">
 
                 <div class="row">
 
@@ -65,6 +66,16 @@ $address = get_post_meta(get_the_ID(), 'page_address', true);
                         <a href=""><?= $address ?></a>
                     </div>
 
+                </div>
+
+                </div>
+
+                <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6"><?php echo $map_embed ?></div>
+                </div>
                 </div>
 
 

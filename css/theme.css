@@ -8404,3 +8404,14 @@ form .form-check-label {
   cursor: pointer; }
   .media i:hover {
     opacity: 0.5; }
+
+.entry-meta {
+  display: none; }
+
+.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open > .btn-success.dropdown-toggle.focus, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle:hover {
+  background-color: #1FDB9B;
+  border-color: #1FDB9B; }
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .btn-primary.dropdown-toggle.focus, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover {
+  background-color: #1FDB9B;
+  border-color: #1FDB9B; }

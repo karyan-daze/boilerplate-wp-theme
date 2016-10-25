@@ -1557,3 +1557,20 @@ i {
   }
 }
 }
+// ** BLOG ** //
+
+.entry-meta {
+  display: none;
+}
+
+// ** button ** //
+
+.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.btn-success.dropdown-toggle.focus, .open>.btn-success.dropdown-toggle:focus, .open>.btn-success.dropdown-toggle:hover {
+  background-color: $mainColor;
+  border-color:$mainColor;
+}
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.btn-primary.dropdown-toggle.focus, .open>.btn-primary.dropdown-toggle:focus, .open>.btn-primary.dropdown-toggle:hover {
+  background-color: $mainColor;
+  border-color:$mainColor;
+}

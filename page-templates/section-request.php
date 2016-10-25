@@ -34,6 +34,7 @@ if (isset($_POST["record_type"])) :
     endforeach;
 
 endif;
+
 ?>
 
 

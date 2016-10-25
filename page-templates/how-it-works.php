@@ -63,7 +63,7 @@
                 Wir schneiden das Angebot perfekt auf ihre Bedürfnisse zu.
             </p>
             <div class="text-xs-center m-t-2">
-            <button class="btn btn-success btn-lg btn-contact">Jetzt Anfragen</button>
+            <a class="btn btn-success btn-lg btn-contact" href="<?php site_url() .'/anfrage/' ?>">Jetzt Anfragen</a>
             </div>
         </div>
     </div>

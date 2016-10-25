@@ -331,6 +331,24 @@ function airteam_register_meta_boxes( $meta_boxes ) {
                             'clone' => false,
                         ),
                         array(
+                            'name' => __('Contact Form', 'airteam'),
+                            'desc' => 'contact form shortcode',
+                            'id' => $prefix3 . 'contact',
+                            'type' => 'text',
+                            'std' => '[contact_form_7]',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
+                            'name' => __('Maps Embedded', 'airteam'),
+                            'desc' => 'put the embedded link to google maps here',
+                            'id' => $prefix3 . 'maps',
+                            'type' => 'text',
+                            'std' => '',
+                            'class' => 'custom-class',
+                            'clone' => false,
+                        ),
+                        array(
                             'name' => __('Company Address', 'airteam'),
                             'desc' => 'Address for the company',
                             'id' => $prefix3 . 'address',
@@ -344,7 +362,7 @@ function airteam_register_meta_boxes( $meta_boxes ) {
 
                     )
                 );
-            };
+            }
         endif;
         };
 

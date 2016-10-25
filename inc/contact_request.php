@@ -71,21 +71,20 @@ function airteam_send_email_to_admin() {
         $vars = array('place', 'description', 'additional_services', 'fname', 'lname', 'company', 'street', 'city', 'zip', 'tel', 'email', 'type', 'day_date', 'date_range');
 
         $ok = 1;
-        $emailVars = array();
+        $emailValues = array();
         // TODO test this whole thing tomorrow!
         // then line 97 can be removed!!
 
-        foreach ($vars as $value) {
-            if (!isset($_POST[$prefix . $value])) :
-                $emailVars[] = $prefix.$value."=>".$_POST[$prefix . $value];
-            // Add the Emailvars here.
-            else :
-                $ok = 0;
-            endif;
+//        foreach ($vars as $value) {
+//            if (!isset($_POST[$prefix . $value])) :
+//                $emailValues[] = $prefix.$value."=>".$_POST[$prefix . $value];
+//            // Add the Emailvars here.
+//            else :
+//                $ok = 0;
+//            endif;
+//
+//        }
 
-        }
-
-        $email = filter_email($_POST[$prefix . 'email']);
 
 
         // we need to implode some stuff
@@ -108,8 +107,7 @@ function airteam_send_email_to_admin() {
             'record_city' => $_POST[$prefix . 'city'],
             'record_zip' => $_POST[$prefix . 'zip'],
             'record_tel' => $_POST[$prefix . 'tel'],
-            'record_email' => $email,
-            'logo_path' => get_template_directory_uri() . '/assets/static/airy_logo.png',
+            'record_email' => $_POST['record_email'],
         );
 
 
@@ -130,7 +128,7 @@ function airteam_send_email_to_admin() {
 
         //TODO add something in a database to make sure data is backed up if something is missed
 
-        $email_status = send_confirmation_mail($email, $_POST['record_fname'], $_POST['record_lname'], 'project-request');
+        $email_status = send_confirmation_mail($_POST['record_email'], $_POST['record_fname'], $_POST['record_lname'], 'project-request');
 
         // Database connection
         // And send email
@@ -286,6 +284,111 @@ function airteam_pilot_request_to_admin() {
 add_action( 'admin_post_nopriv_pilot_form', 'airteam_pilot_request_to_admin' );
 add_action( 'admin_post_pilot_form', 'airteam_pilot_request_to_admin' );
 
+function airteam_send_contact_to_admin() {
+    require get_template_directory() . '/inc/emailTemplateParser.php';
+
+    /**
+     * At this point, $_GET/$_POST variable are available
+     *
+     * We can do our normal processing here
+     */
+
+    if ( ! empty( $_POST ) ) {
+        // TODO Sanitize the POST field
+        //
+
+        sanitize($_POST);
+
+        // Generate email content
+        // Send to appropriate email
+
+
+        $prefix = 'contact_';
+        $vars = array('place', 'description', 'additional_services', 'fname', 'lname', 'company', 'street', 'city', 'zip', 'tel', 'email', 'type', 'day_date', 'date_range');
+
+        $ok = 1;
+        $emailValues = array();
+        // TODO test this whole thing tomorrow!
+        // then line 97 can be removed!!
+
+//        foreach ($vars as $value) {
+//            if (!isset($_POST[$prefix . $value])) :
+//                $emailValues[] = $prefix.$value."=>".$_POST[$prefix . $value];
+//            // Add the Emailvars here.
+//            else :
+//                $ok = 0;
+//            endif;
+//
+//        }
+
+
+
+        // we need to implode some stuff
+        $record_additional_services = $_POST["record_additional_services"];
+        $record_additional_services = implode(', ', $record_additional_services);
+        $record_types = $_POST["record_type"];
+        $record_types = implode(', ', $record_types);
+
+        $emailValues = array(
+            'record_types' => $record_types,
+            'record_date_range' => $_POST[$prefix . 'date_range'],
+            'record_day_date' => $_POST[$prefix . 'day_date'],
+            'record_description' => $_POST[$prefix . 'description'],
+            'record_place' => $_POST[$prefix . 'place'],
+            'record_additional_services' => $record_additional_services,
+            'record_fname' => $_POST[$prefix . 'fname'],
+            'record_lname' => $_POST[$prefix . 'lname'],
+            'record_company' => $_POST[$prefix . 'company'],
+            'record_street' => $_POST[$prefix . 'street'],
+            'record_city' => $_POST[$prefix . 'city'],
+            'record_zip' => $_POST[$prefix . 'zip'],
+            'record_tel' => $_POST[$prefix . 'tel'],
+            'record_email' => $_POST['record_email'],
+        );
+
+
+        $to = $GLOBALS['email'];
+        $subject = "Aufnahme airteam.camera";
+        $emailTemplate = get_template_directory() . '/email/email.tpl';
+
+
+        $emailHtml = new EmailTemplateParser($emailTemplate);
+
+        $emailHtml->setVars($emailValues);
+
+        add_filter('wp_mail_content_type', 'set_html_content_type');
+        $emailHtml->output();
+        $status = wp_mail($to, $subject, $emailHtml->output());
+        // Reset content-type to avoid conflicts -- http://core.trac.wordpress.org/ticket/23578
+        remove_filter('wp_mail_content_type', 'set_html_content_type');
+
+        //TODO add something in a database to make sure data is backed up if something is missed
+
+        $email_status = send_confirmation_mail($_POST['record_email'], $_POST['record_fname'], $_POST['record_lname'], 'project-request');
+
+        // Database connection
+        // And send email
+
+        $site_url = get_site_url();
+        $succes_page = '/anfrage/vielen-dank';
+        $url = $site_url . $succes_page;
+
+        // Redirection to the success page
+        if ($status == true):
+            wp_safe_redirect($url);
+
+
+        else :
+            var_dump($status);
+            //wp_safe_redirect( $url, $status );
+        endif;
+
+        exit;
+    }
+}
+add_action( 'admin_post_nopriv_request_form', 'airteam_send_email_to_admin' );
+add_action( 'admin_post_request_form', 'airteam_send_email_to_admin' );
+
 function set_html_content_type() {
     return 'text/html';
 }
@@ -295,13 +398,20 @@ function replace_tags($template, $placeholders){
     return str_replace(array_keys($placeholders), $placeholders, $template);
 }
 
+
 function send_confirmation_mail($email, $fname, $lname, $type) {
 
     $to = $email;
-    $subject = "Bestätigung airteam.camera";
     $emailTemplate = get_template_directory().'/email/email-confirmation.tpl';
 
 
+    if($type == 'project-request') :
+        $subject = 'Deine AIRTEAM Anfrage ist in Bearbeitung';
+    $body = 'Vielen Dank für Deine Anfrage bei AIRTEAM. Wir prüfen gerade deine Angaben und melden uns in Kürze bei dir (max. 48 Stunden) mit allen nötigen Informationen für die Durchführung des Drohnenflugs. ';
+        elseif($type == 'pilot-request') :
+            $subject = 'Pilot Anfrage Bestätigung';
+    $body = 'Wir freuen uns sehr, dass du bei AIRTEAM Pilot werden willst. Bevor du als AIRTEAM Pilot loslegen kannst dauert es noch ein wenig, bis wir deine Eingaben geprüft haben. Sobald das geschehen ist (max. 48 Stunden), melden wir uns bei dir. ';
+            endif;
 
     //TODO define which variables we need to send
     //TODO define the Subject
@@ -311,6 +421,8 @@ function send_confirmation_mail($email, $fname, $lname, $type) {
         'record_fname' => $fname,
         'record_lname' => $lname,
         'logo_path' => get_template_directory_uri() . '/assets/static/airy_logo.png',
+        'subject' => $subject,
+        'body' => $body,
     );
 
 
@@ -345,9 +457,7 @@ function sanitize($input) {
         }
     }
     else {
-
-        $input  = cleanInput($input);
-        $output = mysql_real_escape_string($input);
+        $output = htmlentities ( trim ( $input ) , ENT_NOQUOTES );
     }
     return $output;
 }

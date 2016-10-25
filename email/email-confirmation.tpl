@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Pilot Anfrage von airteam.camera</title>
+<title>{{subject}}</title>
 <!--
 
    Airteam.camera template
@@ -114,7 +114,7 @@
 
 <!-- HIDDEN PREHEADER TEXT -->
 <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-    Neue Anfrage von die airteam.camera Webseite
+    {{subject}}
 </div>
 
 <!-- HEADER -->
@@ -130,7 +130,7 @@
                 <tr>
                     <td align="center" valign="top" style="padding: 15px 0;" class="logo">
                         <a href="http://airteam.camera" target="_blank">
-                            <img alt="Logo" src="{{logo_path}}" width="60" height="60" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
+                            <img alt="Logo" src="{{logo_path}}" width="120" height="100%" style="display: block; font-family: Helvetica, Arial, sans-serif; color: #ffffff; font-size: 16px;" border="0">
                         </a>
                     </td>
                 </tr>
@@ -161,7 +161,7 @@
                                     <!-- COPY -->
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td align="center" style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">Neue Anfrage von die airteam.camera Webseite
+                                            <td align="center" style="font-size: 18px; font-family: Helvetica, Arial, sans-serif; color: #266e9c; padding-top: 5px;" class="padding-copy">{{subject}} von airteam.camera
                                             </td>
                                         </tr>
                                     </table>
@@ -205,15 +205,42 @@
                                                     <!-- ARTICLE -->
                                                     <table border="0" cellspacing="0" cellpadding="0" width="100%">
                                                         <tr>
-                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Anfrage Informationen</td>
+                                                            <td align="left" style="padding: 0 0 5px 0; font-size: 22px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Hallo {{record_fname}} {{record_lname}},</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center" style="padding: 0 0 5px 0; font-size: 16px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #333333;" class="padding-copy">Vielen Dank für die Anfrage</td>
+
                                                         </tr>
                                                         <tr>
                                                              <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
-                                                                  <table>
-                                                                      <tr><td>Name: </td><td>{{record_fname}} {{record_lname}}</td></tr>
-                                                                      <tr><td>Telefonnummer: </td><td>{{record_tel}}</td></tr>
-                                                                  </table>
-                                                             </td>
+                                                                {{body}}
+                                                                         </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
+                                                                Grüße
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
+                                                                Thomas Gorski
+                                                                Founder & Teamcaptain AIRTEAM
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td align="left" style="padding: 10px 0 15px 0; font-size: 16px; line-height: 24px; font-family: Helvetica, Arial, sans-serif; color: #666666;" class="padding-copy">
+
+
+                                                                <tr>Rigaerstr. 67</tr>
+                                                                <tr>10247 Berlin</tr>
+                                                                <tr>+49 160 96 81 00 41</tr>
+                                                                <tr>thomas.gorski@airteam.camera</tr>
+                                                                <tr>www.airteam.camera</tr>
+                                                                <tr>Steuernummer: 14/313/02934</tr>
+                                                            </td>
+
+
                                                         </tr>
                                                     </table>
                                                 </td>
