@@ -57,9 +57,10 @@ endif;
                   action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
                 <div class="row setup-content" id="step-1">
                     <div class="">
-                        <div class="col-md-8 offset-md-2">
+                        <div class="col-md-10 offset-md-1">
                             <div class="form-group">
-                                <p class="text-xs-center big-label"><?php _e('Art der Aufnahmen', 'airteam') ?></p>
+                                <p class="text-xs-center big-label"><?php _e('Art der Aufnahmen', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </p>
                                 <label class="form-check-inline"><?php _e('Foto- Videoaufnahmen', 'airteam') ?><input
                                         class="form-check-input" name="record_type[]" type="checkbox"
                                         value="<?php _e('Foto- Videoaufnahmen', '') ?>" <?php if (isset($record_1)): echo 'checked'; endif; ?>></label>
@@ -72,43 +73,30 @@ endif;
 
                             </div>
                             <div class="form-group">
-                                <p class="text-xs-center big-label"><?php _e('Ort der Aufnahmen ', 'airteam') ?></p>
-                                <div class="input-group input-group-lg request-input">
-                                    <span class="input-group-addon" id="sizing-addon1">
-                                    <i class="fa fa-map-marker"></i>
-                                    </span>
-
-                                    <input pattern="[a-zA-Z0-9 ]+" name="record_place" maxlength="100" type="text"
-                                           required="required" aria-describedby="sizing-addon1" class="form-control record-place"
-                                           placeholder="Stadt" value="<?php if (isset($_POST["record_place"])) : echo $_POST["record_place"]; endif; ?>">
-                                </div>
-
+                                <p class="text-xs-center big-label"><?php _e('Ort der Aufnahmen ', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </p>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group address-group">
                                 <input pattern="[a-zA-Z0-9 ]+" name="record_street" maxlength="100" type="text"
                                        required="required" aria-describedby="sizing-addon1" class="form-control"
                                        placeholder="<?php _e('Strasse', 'airteam') ?>" value="">
-                            </div>
-                            <div class="form-group">
                                 <input pattern="[a-zA-Z0-9 ]+" name="record_zip" maxlength="100" type="text"
                                        required="required" aria-describedby="sizing-addon1" class="form-control"
                                        placeholder="<?php _e('Postleitzahl','airteam') ?>" value="">
-
-                            </div>
-                            <div class="form-group">
                                 <input pattern="[a-zA-Z0-9 ]+" name="record_city" maxlength="100" type="text"
                                        required="required" aria-describedby="sizing-addon1" class="form-control"
-                                       placeholder="<?php _e('Stadt', 'airteam') ?>" value="">
+                                       placeholder="<?php _e('Stadt', 'airteam') ?>" value="<?php if (isset($_POST["record_place"])) : echo $_POST["record_place"]; endif; ?>">
 
                             </div>
 
                             <div class="form-group">
-                                <p class="text-xs-center big-label"><?php _e('Ausführungszeitraum', 'airteam') ?></p>
+                                <p class="text-xs-center big-label"><?php _e('Ausführungszeitraum', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </p>
                                 <input maxlength="100" name="record_date_range" type="text" class="form-control"
                                        placeholder=""/>
                             </div>
                             <div class="form-group">
-                                <label class="text-xs-center form-check-inline"><?php _e('Genauer Tag', 'airteam') ?><input class="form-check-input" name="record_day" type="checkbox"></label>
+                                <label class="special-center form-check-inline"><?php _e('Genauer Tag', 'airteam') ?><input class="form-check-input" name="record_day" type="checkbox"></label>
                                 <input class="record-day form-control"
                                     name="record_day_date" type="text">
                             </div>
@@ -143,12 +131,14 @@ endif;
                         <div class="col-md-8 offset-md-2">
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                    <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?></p>
+                                    <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                    </p>
                                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_fname" type="text"
                                        required="required" class="form-control" placeholder=""/>
                                 </div>
                                 <div class="col-md-6">
-                                <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?></p>
+                                <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </p>
                                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_lname" type="text"
                                        required="required" class="form-control"/>
                                     </div>
@@ -156,17 +146,19 @@ endif;
                             <div class="form-group">
                                 <p class="text-xs-center big-label"><?php _e('Firma', 'airteam') ?></p>
                                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_company" type="text"
-                                       required="required" class="form-control"/>
+                                       required="" class="form-control"/>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-md-6">
-                                <p class="text-xs-center big-label"><?php _e('Telefonnummer', 'airteam') ?></p>
+                                <p class="text-xs-center big-label"><?php _e('Telefonnummer', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </p>
                                 <input maxlength="200" name="record_tel" type="text" required="required"
                                        class="form-control" placeholder=""/>
                                     </div>
                                 <div class="col-md-6">
-                                <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?></p>
+                                <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </p>
                                 <input maxlength="200" name="record_email" type="email" required="required"
                                        class="form-control"/>
                                     </div>
@@ -188,6 +180,7 @@ endif;
 
 <script>
     $ = jQuery;
+
 
 
     function form_validation() {

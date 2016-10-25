@@ -28,7 +28,7 @@ record_email:email@email.com
     </div>
         </div>
     <div class="row">
-    <div class="col-md-6 text-xs-center offset-md-3">
+    <div class="col-md-8 text-xs-center offset-md-2 padding-0">
     <form role="form" class="home-request" name="record_information" method="POST" onsubmit="" action="<?php echo esc_url( site_url() . '/anfrage' ); ?>">
 
     <div class="form-group">

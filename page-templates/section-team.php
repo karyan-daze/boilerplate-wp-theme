@@ -34,11 +34,10 @@
         <div class="col-md-6 offset-md-3">
 
             <h3 class="text-xs-center title">Willst du mit uns ﬂiegen?</h3>
-            <p class="text-xs-center m-t-2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                invidunt ut labore et dolore magna aliquyam erat,.
+            <p class="text-xs-center m-t-2">Dann schicke uns hier und jetzt direkt deine Anfrage oder greif einfach zum Hörer +49 30 123456789
             </p>
 
-            <div class="text-xs-center m-t-3"><button class="btn btn-success btn-lg btn-contact black">JETZT PILOT WERDEN</button>
+            <div class="text-xs-center m-t-3"><a class="btn btn-success btn-lg btn-contact black" href="<?php echo site_url() .'/pilot-werden' ?>">JETZT PILOT WERDEN</a>
             </div>
 
         </div>

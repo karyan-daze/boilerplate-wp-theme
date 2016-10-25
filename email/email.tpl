@@ -215,8 +215,10 @@
                                                                       <tr><td>Firma: </td><td>{{record_company}}</td></tr>
                                                                       <tr><td>Telefonnummer: </td><td>{{record_tel}}</td></tr>
                                                                       <tr><td>E-mail-adresse: </td><td>{{record_email}}</td></tr>
+                                                                      <tr><td>Stadt:</td><td> {{record_city}}</td></tr>
+                                                                      <tr><td>Strasse:</td><td> {{record_street}}</td></tr>
+                                                                      <tr><td>Postleitzahl:</td><td> {{record_zip}}</td></tr>
                                                                       <tr><td>Art der Aufnahmen:</td><td>{{record_types}}</td>
-                                                                      <tr><td>Ort der Aufnahmen:</td><td> {{record_place}}</td></tr>
                                                                       <tr><td>Ausführungszeitraum: </td><td>{{record_date_range}}</td></tr>
                                                                       <tr><td>Genauer Tag: </td><td>{{record_day_date}}</td></tr>
                                                                       <tr><td>Zusätzliche Anforderungen: </td><td>{{record_additional_services}}</td></tr>

@@ -10,9 +10,6 @@
 
 <?php get_sidebar('footerfull'); ?>
 
-<div class="wrapper" id="wrapper-footer">
-    
-</div><!-- wrapper end -->
 
 </div><!-- #page -->
 

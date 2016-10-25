@@ -5,14 +5,20 @@
 
             <div class="row">
                 <div class="filter-media">
+
                     <div class="col-md-1 offset-md-4 filter-video">
                         <img src="<?php echo get_stylesheet_directory_uri() . '/assets/static/video.svg'?>" width="15px" />
                         Video
                     </div>
 
                     <div class="col-md-1"><div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch"></label>
+                            <div class="flipswitch">
+                                <input type="checkbox" name="flipswitch" class="flipswitch-cb" id="fs">
+                                <label class="flipswitch-label" for="fs">
+                                    <div class="flipswitch-inner"></div>
+                                    <div class="flipswitch-switch"></div>
+                                </label>
+                            </div>
                     </div>
                         </div>
                 <div class="col-md-2 filter-image">
@@ -45,24 +51,24 @@
 
 
 
-        jQuery('.onoffswitch-checkbox').change(function() {
+        jQuery('.flipswitch-cb').change(function() {
             if(jQuery(this).prop('checked')) {
                 console.log('checked show me videos');
                 // hide all the images
                 // show the videos
-                jQuery('.object-image.hide-0').hide(400, "linear");
-                jQuery('.object-image.hide-1').hide(400, "linear");
-                jQuery('.object-video.hide-1').hide(400, "linear");
-                jQuery('.object-video.hide-0').show(400, "linear");
-            }
-            if (jQuery(this).prop('checked') == false){
-                console.log('not checked show me images')
-
-
                 jQuery('.object-image.hide-0').show(400, "linear");
                 jQuery('.object-image.hide-1').hide(400, "linear");
                 jQuery('.object-video.hide-0').hide(400, "linear");
                 jQuery('.object-video.hide-1').hide(400, "linear");
+            }
+            if (jQuery(this).prop('checked') == false){
+                console.log('not checked show me images')
+
+                jQuery('.object-image.hide-0').hide(400, "linear");
+                jQuery('.object-image.hide-1').hide(400, "linear");
+                jQuery('.object-video.hide-1').hide(400, "linear");
+                jQuery('.object-video.hide-0').show(400, "linear");
+
                 console.log(jQuery(this).prop('checked'));
 
             }

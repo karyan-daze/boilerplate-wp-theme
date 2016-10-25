@@ -98,7 +98,6 @@ function airteam_send_email_to_admin() {
             'record_date_range' => $_POST[$prefix . 'date_range'],
             'record_day_date' => $_POST[$prefix . 'day_date'],
             'record_description' => $_POST[$prefix . 'description'],
-            'record_place' => $_POST[$prefix . 'place'],
             'record_additional_services' => $record_additional_services,
             'record_fname' => $_POST[$prefix . 'fname'],
             'record_lname' => $_POST[$prefix . 'lname'],
