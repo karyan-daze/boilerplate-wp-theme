@@ -8053,7 +8053,9 @@ a:focus, a:hover {
   font-size: 17px;
   text-transform: uppercase; }
   .setup-content .nextBtn:hover, .setup-content .submitBtn:hover {
-    color: #1FDB9B; }
+    color: #1FDB9B;
+    background-color: #fff;
+    border: 1px solid; }
 
 .submitBtn {
   background-color: #1FDB9B;
@@ -8662,3 +8664,12 @@ form .form-check-label {
   margin-left: auto;
   margin-right: auto;
   width: 200px; }
+
+.special-block-0 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px; }
+
+.has-error {
+  border-bottom: 1px solid #FF0000; }

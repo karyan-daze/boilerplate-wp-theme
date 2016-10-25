@@ -61,16 +61,17 @@ endif;
                             <div class="form-group">
                                 <p class="text-xs-center big-label"><?php _e('Art der Aufnahmen', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
                                 </p>
+                                <div class="required">
                                 <label class="form-check-inline"><?php _e('Foto- Videoaufnahmen', 'airteam') ?><input
                                         class="form-check-input" name="record_type[]" type="checkbox"
                                         value="<?php _e('Foto- Videoaufnahmen', '') ?>" <?php if (isset($record_1)): echo 'checked'; endif; ?>></label>
-                                <label class="form-check-inline"><?php _e('360 Panorama', 'airteam') ?><input
+                                <label  class="form-check-inline"><?php _e('360 Panorama', 'airteam') ?><input
                                         class="form-check-input" name="record_type[]" type="checkbox"
                                         value="<?php _e('360 Panorama', '') ?>" <?php if (isset($record_2)): echo 'checked'; endif; ?>></label>
                                 <label class="form-check-inline"><?php _e('3D Modell', 'airteam') ?><input
                                         class="form-check-input" name="record_type[]" type="checkbox"
                                         value="<?php _e('3D Modell', '') ?>" <?php if (isset($record_3)): echo 'checked'; endif; ?>></label>
-
+                                </div>
                             </div>
                             <div class="form-group">
                                 <p class="text-xs-center big-label"><?php _e('Ort der Aufnahmen ', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i>
@@ -103,17 +104,18 @@ endif;
 
                             <div class="form-group">
                                 <p class="text-xs-center big-label"><?php _e('Zusätzliche Anforderungen', 'airteam') ?></p>
-                                <label class="form-check-inline"><?php _e('Filmschnitt/Imagefilm', 'airteam') ?><input
+                                <div class="special-block-0"><label class="form-check-inline"><?php _e('Filmschnitt/Imagefilm', 'airteam') ?><input
                                         class="form-check-input" name="record_additional_services[]" type="checkbox"
                                         value="<?php _e('Filmschnitt/Imagefilm', 'airteam') ?>"></label>
                                 <label class="form-check-inline"><?php _e('Bildbearbeitung', 'airteam') ?><input
                                         class="form-check-input" name="record_additional_services[]" type="checkbox"
                                         value="<?php _e('Bildbearbeitung', 'airteam') ?>"></label>
-                            </div>
+                                </div>
+                                </div>
 
                             <div class="form-group">
 
-                                <p class="text-xs-center big-label"><?php _e('Beschreibung', 'airteam'); ?></p>
+                                <p class="text-xs-center big-label"><?php _e('Beschreibung', 'airteam'); ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
                                 <textarea rows="10" name="record_description" cols="35" maxlength="100"
                                           required="required" class="form-control" placeholder=""></textarea>
 
@@ -146,7 +148,7 @@ endif;
                             <div class="form-group">
                                 <p class="text-xs-center big-label"><?php _e('Firma', 'airteam') ?></p>
                                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="record_company" type="text"
-                                       required="" class="form-control"/>
+                                       class="form-control"/>
                             </div>
 
                             <div class="form-group row">
@@ -212,6 +214,17 @@ endif;
     }
 
     $(document).ready(function () {
+
+        jQuery('.nextBtn').on('click', function(){
+            if(jQuery('input[name="record_type"]').prop('checked') != true){
+               console.log('return')
+            } else {
+                jQuery('.object-image.hide-1').show(400, "linear");
+
+            }
+        })
+
+
         $(function () {
             $('input[name="record_day_date"]').daterangepicker({
                 singleDatePicker: true,
@@ -254,19 +267,39 @@ endif;
         });
 
         allNextBtn.click(function () {
+
+
+
             var curStep = $(this).closest(".setup-content"),
                 curStepBtn = curStep.attr("id"),
                 nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                curInputs = curStep.find("input[type='text'],input[type='url']"),
+                curInputs = curStep.find("input[type='text']")
+                console.log(curInputs);
                 isValid = true;
 
             $(".form-group").removeClass("has-error");
             for (var i = 0; i < curInputs.length; i++) {
+
                 if (!curInputs[i].validity.valid) {
                     isValid = false;
-                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    console.log(curInputs[i])
+                    $(curInputs[i]).closest("input").addClass("has-error");
+                    $('.has-error')[0].scrollIntoView(true);
                 }
             }
+
+            var filled = false;
+            var check = $('.required :checkbox:checked')
+            console.log(check)
+                 if(check.length > 0 ) {
+                    filled = true;
+                     console.log('filled')
+                } else { // raise an error
+                return false;
+                console.log('not filled');
+            }
+
+
 
             if (isValid)
                 nextStepWizard.removeAttr('disabled').trigger('click');

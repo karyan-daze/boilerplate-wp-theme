@@ -88,10 +88,21 @@ function airteam_send_email_to_admin() {
 
 
         // we need to implode some stuff
-        $record_additional_services = $_POST["record_additional_services"];
+
+
+        if(isset($_POST["record_additional_services"])) :
+            $record_additional_services = $_POST["record_additional_services"];
         $record_additional_services = implode(', ', $record_additional_services);
+        else :
+            $record_additional_services = 'keine';
+        endif;
         $record_types = $_POST["record_type"];
-        $record_types = implode(', ', $record_types);
+        if(isset($_POST["record_type"])) :
+            $record_types = $_POST["record_type"];
+            $record_types = implode(', ', $record_types);
+            else :
+            $record_types = 'keine';
+                endif;
 
         $emailValues = array(
             'record_types' => $record_types,

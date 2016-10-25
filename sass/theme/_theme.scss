@@ -1122,6 +1122,8 @@ a:focus, a:hover {
     text-transform: uppercase;
     &:hover {
       color:$mainColor;
+      background-color:#fff;
+      border: 1px solid;
     }
   }
 }
@@ -1870,4 +1872,14 @@ i {
   margin-left: auto;
   margin-right: auto;
   width: 200px;
+}
+.special-block-0 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+.has-error {
+  border-bottom: 1px solid #FF0000;
 }
