@@ -8080,6 +8080,8 @@ a:focus, a:hover {
   border: none;
   font-size: 17px;
   text-transform: uppercase; }
+  .btn-primary.active.focus:hover, .btn-primary.active:focus:hover, .btn-primary.active:hover:hover, .btn-primary:active.focus:hover, .btn-primary:active:focus:hover, .btn-primary:active:hover:hover, .btn-success.active.focus:hover, .btn-success.active:focus:hover, .btn-success.active:hover:hover, .btn-success.focus:hover, .btn-success:active.focus:hover, .btn-success:active:focus:hover, .btn-success:active:hover:hover, .btn-success:focus:hover, .btn-success:hover:hover, .open > .btn-primary.dropdown-toggle.focus:hover, .open > .btn-primary.dropdown-toggle:focus:hover, .open > .btn-primary.dropdown-toggle:hover:hover, .open > .btn-success.dropdown-toggle.focus:hover, .open > .btn-success.dropdown-toggle:focus:hover, .open > .btn-success.dropdown-toggle:hover .submitBtn:hover {
+    color: #1FDB9B; }
 
 .form-control {
   border-radius: 1px; }

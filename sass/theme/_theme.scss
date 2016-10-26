@@ -1151,6 +1151,9 @@ a:focus, a:hover {
   border:none;
   font-size: 17px;
   text-transform: uppercase;
+  &:hover {
+    color:$mainColor;
+  }
 }
 .form-control {
   border-radius: 1px;
