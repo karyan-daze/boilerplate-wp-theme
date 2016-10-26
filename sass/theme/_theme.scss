@@ -1148,11 +1148,11 @@ a:focus, a:hover {
   background-color:$mainColor;
   border-radius:1px;
   color:#fff;
-  border:none;
   font-size: 17px;
   text-transform: uppercase;
   &:hover {
     color:$mainColor;
+    border-color:$mainColor;
   }
 }
 .form-control {
