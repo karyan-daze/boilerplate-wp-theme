@@ -8058,6 +8058,18 @@ a:focus, a:hover {
     background-color: #fff;
     border: 1px solid; }
 
+.nextBtn, .submitBtn {
+  background-color: #1FDB9B;
+  border-color: #1FDB9B;
+  border-radius: 1px;
+  color: #fff;
+  font-size: 17px;
+  text-transform: uppercase; }
+  .nextBtn:hover, .submitBtn:hover {
+    color: #1FDB9B;
+    background-color: #fff;
+    border: 1px solid; }
+
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success.focus, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .btn-success:focus, .btn-success:hover, .open > .btn-primary.dropdown-toggle.focus, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle.focus, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle:hover {
   color: #1FDB9B; }
 
