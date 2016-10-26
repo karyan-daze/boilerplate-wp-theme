@@ -24,7 +24,7 @@
 
 	</header><!-- .entry-header -->
     
-		<div class="entry-content col-md-8 offset-md-2">
+		<div class="entry-content">
 
 	            <?php
 	                the_excerpt();

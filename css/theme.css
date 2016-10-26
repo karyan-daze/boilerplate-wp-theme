@@ -8471,7 +8471,10 @@ form .form-check-label {
     border-color: #fff; }
   .contact_form .submitBtn {
     background-color: #101011;
-    margin-top: 30px; }
+    margin-top: 30px;
+    background-color: #101011;
+    border-radius: 1px;
+    text-transform: uppercase; }
   .contact_form .big-label {
     color: #fff;
     font-weight: normal; }
