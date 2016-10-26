@@ -26,20 +26,20 @@ $prefix = 'contact_'
 
             <form role="form" name="<?= $prefix ?>request" method="POST" onsubmit="return form_validation()" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
                 <div class="form-group col-md-6">
-                    <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?></p><span><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                    <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?></p><span></span>
                     <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="fname" type="text" required="required" class="form-control" placeholder="" />
                 </div>
                 <div class="form-group col-md-6">
-                    <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
+                    <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?></p>
                     <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="lname" type="text" required="required" class="form-control" />
                 </div>
                 <div class="form-group col-md-12">
-                    <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
+                    <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?></p>
                     <input maxlength="200" name="email" type="email" required="required" class="form-control" />
                 </div>
 
                 <div class="form-group col-md-12">
-                    <p class="big-label text-xs-center"><?php _e('Ihre Nachricht', 'airteam'); ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
+                    <p class="big-label text-xs-center"><?php _e('Ihre Nachricht', 'airteam'); ?></p>
                     <textarea rows="6" name="message" cols="35" maxlength="100" required="required" class="form-control" placeholder=""></textarea>
                 </div>
 

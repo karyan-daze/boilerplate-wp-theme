@@ -25,25 +25,25 @@ $prefix = 'pilot_'
 <div class="row">
     <div class="container">
 
-        <div class="<?= $prefix ?>form col-md-6 offset-md-2">
+        <div class="<?= $prefix ?>form col-md-8 offset-md-2">
             <h1 class="text-xs-center"><?php _e('Du willst Drohnenpilot bei AIRTEAM werden?', 'airteam') ?></h1>
-            <p class="text-xs-center"><?php _e('Dann schicke uns hier und jetzt direkt deine Anfrage oder greif einfach zum Hörer', 'airteam'); ?><a href="tel:016096810041">016096810041</a></p>
+            <p class="text-xs-center"><?php _e('Dann schicke uns hier und jetzt direkt deine Anfrage oder greif einfach zum Hörer', 'airteam'); ?> <a href="tel:016096810041">016096810041</a></p>
 
         <form role="form" name="<?= $prefix ?>request" method="POST" onsubmit="return form_validation()" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
             <div class="form-group col-md-6">
-                <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?></p>
+                <p class="text-xs-center big-label"><?php _e('Vorname', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="<?= $prefix ?>fname" type="text" required="required" class="form-control" placeholder="" />
             </div>
             <div class="form-group col-md-6">
-                <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?></p>
+                <p class="text-xs-center big-label"><?php _e('Nachname', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
                 <input pattern="[a-zA-Z0-9 ]+" maxlength="200" name="<?= $prefix ?>lname" type="text" required="required" class="form-control" />
             </div>
             <div class="form-group col-md-6">
-                <p class="text-xs-center big-label"><?php _e('Telefonnummer', 'airteam') ?></p>
+                <p class="text-xs-center big-label"><?php _e('Telefonnummer', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
                 <input maxlength="200" name="<?= $prefix ?>tel" type="text" required="required" class="form-control" placeholder="" />
             </div>
             <div class="form-group col-md-6">
-                <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?></p>
+                <p class="text-xs-center big-label"><?php _e('E-mail-adresse', 'airteam') ?><i class="fa fa-asterisk" aria-hidden="true"></i></p>
                 <input maxlength="200" name="<?= $prefix ?>email" type="email" required="required" class="form-control" />
             </div>
 

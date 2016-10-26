@@ -658,6 +658,7 @@ input[type="radio"] .styled:checked + label::after {
 }
 
 .open-modal {
+  margin-left: 48%;
   display: block;
   padding-top: .425rem;
   padding-bottom: .425rem;
@@ -1127,6 +1128,9 @@ a:focus, a:hover {
     }
   }
 }
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success.focus, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .btn-success:focus, .btn-success:hover, .open>.btn-primary.dropdown-toggle.focus, .open>.btn-primary.dropdown-toggle:focus, .open>.btn-primary.dropdown-toggle:hover, .open>.btn-success.dropdown-toggle.focus, .open>.btn-success.dropdown-toggle:focus, .open>.btn-success.dropdown-toggle:hover {
+  color:$mainColor;
+ }.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success.focus, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .btn-success:focus, .btn-success:hover, .open>.btn-primary.dropdown-toggle.focus, .open>.btn-primary.dropdown-toggle:focus, .open>.btn-primary.dropdown-toggle:hover, .open>.btn-success.dropdown-toggle.focus, .open>.btn-success.dropdown-toggle:focus, .open>.btn-success.dropdown-toggle:hover
 .submitBtn {
   background-color:$mainColor;
   border-radius:1px;
